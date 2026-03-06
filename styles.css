@@ -211,7 +211,17 @@ button.danger {
 
 .search-actions {
   display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+.header-sep {
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background: #d7d9df;
+  margin: 0 6px;
+  flex-shrink: 0;
 }
 
 .search {
