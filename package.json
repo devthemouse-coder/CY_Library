@@ -1,0 +1,12 @@
+{
+  "name": "bcy-library-pwa",
+  "private": true,
+  "version": "0.1.0",
+  "description": "읽은 책 목록을 IndexedDB에 저장하는 오프라인 PWA",
+  "scripts": {
+    "dev": "http-server -c-1 -p 5173 ."
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
