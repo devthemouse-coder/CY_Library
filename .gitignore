@@ -7,3 +7,6 @@ Thumbs.db
 
 # Runtime
 node_modules/
+
+# API 키 (절대 커밋하지 않음 — config.example.js를 복사해서 사용)
+config.js

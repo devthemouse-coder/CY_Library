@@ -1,6 +1,14 @@
-// 주의: 정적 PWA에 키를 넣으면 누구나 볼 수 있습니다.
-// GitHub Pages 등으로 배포한다면, Google Cloud Console에서 API 키를 반드시 'HTTP referrer'로 제한하세요.
-const GEMINI_API_KEY = 'AIzaSyCqfws2IAnfy0lP56T-WRzb-KgwCReW0Wo';
+// API 키는 config.js 에서 읽습니다.
+// config.js는 .gitignore에 등록되어 깃/GitHub에 업로드되지 않습니다.
+// config.example.js 를 복사해 config.js 로 만들고 새 API 키를 넣으세요.
+let GEMINI_API_KEY = '';
+try {
+  const cfg = await import('./config.js');
+  GEMINI_API_KEY = String(cfg.GEMINI_API_KEY || '').trim();
+} catch {
+  // config.js 없음 — AI 요약 기능이 비활성화됩니다.
+}
+
 // 우선 시도할 모델(404가 나면 자동으로 사용 가능한 모델을 찾아 재시도합니다)
 const GEMINI_MODEL = 'gemini-2.5-flash';
 
