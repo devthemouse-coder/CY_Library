@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bcy-library-v23';
+const CACHE_NAME = 'bcy-library-v24';
 const ASSETS = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const ASSETS = [
   './db.js',
   './api.js',
   './ai.js',
+  './gist.js',
   './manifest.webmanifest',
   './icon.svg'
 ];

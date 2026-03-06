@@ -27,14 +27,22 @@
         <section class="card">
           <div class="list-header">
             <h2 class="section-title">읽은 책 목록 <span id="list-total-badge" class="count-badge"></span></h2>
-            <div class="search-actions">
-              <button type="button" id="report-btn" class="secondary">리포트</button>
-              <button type="button" id="export-btn" class="secondary">내보내기</button>
-              <button type="button" id="import-btn" class="secondary">가져오기</button>
-              <button type="button" id="backup-btn" class="secondary" disabled title="준비중">백업</button>
-              <button type="button" id="go-add" class="secondary">+ 추가</button>
-            </div>
+            <button type="button" id="go-add">＋ 추가</button>
           </div>
+
+          <div class="toolbar">
+            <button type="button" id="report-btn" class="toolbar-btn">리포트</button>
+            <div class="toolbar-dropdown">
+              <button type="button" id="storage-btn" class="toolbar-btn">내부저장 ▾</button>
+              <div id="storage-dropdown" class="dropdown-menu" hidden>
+                <button type="button" id="export-btn" class="dropdown-item">내보내기</button>
+                <button type="button" id="import-btn" class="dropdown-item">가져오기</button>
+              </div>
+            </div>
+            <button type="button" id="backup-btn" class="toolbar-btn toolbar-btn--backup">클라우드</button>
+          </div>
+
+          <div id="backup-status" class="backup-status" hidden></div>
 
           <input id="import-file" type="file" accept="application/json" hidden />
 
@@ -282,6 +290,64 @@
 
         <div id="report-content" class="report" aria-live="polite"></div>
         <p id="report-empty" class="empty" hidden>리포트로 만들 책이 없어요.</p>
+      </section>
+    </div>
+
+    <div id="backup-modal" class="modal" hidden aria-hidden="true">
+      <div class="modal-backdrop" data-action="close-backup"></div>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-label="클라우드 백업 설정">
+        <div class="list-header">
+          <h2 class="section-title">클라우드 백업 (GitHub Gist)</h2>
+          <div class="search-actions">
+            <button type="button" id="backup-modal-close" class="secondary">닫기</button>
+          </div>
+        </div>
+
+        <!-- 설정 전 패널 -->
+        <div id="backup-panel-setup">
+          <p class="helper" style="margin-top:8px">책 목록을 GitHub의 비공개 Gist에 자동으로 저장합니다.<br>아래 안내대로 GitHub PAT를 발급해 붙여넣으세요.</p>
+          <div class="backup-guide">
+            <ol class="backup-steps">
+              <li><a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">여기를 클릭</a>해서 GitHub 로그인</li>
+              <li>Note(이름)에 <code>bcy-library</code> 입력</li>
+              <li>Expiration: <strong>No expiration</strong> 선택</li>
+              <li>Scopes에서 <strong>gist</strong> 체크</li>
+              <li>아래로 스크롤해 <strong>Generate token</strong> 클릭</li>
+              <li>생성된 토큰(<code>ghp_...</code>)을 복사해서 아래에 붙여넣기</li>
+            </ol>
+          </div>
+          <label class="field" style="margin-top:10px">
+            <span class="label" id="backup-pat-label">GitHub PAT</span>
+            <input id="backup-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" spellcheck="false" />
+          </label>
+          <div class="actions" style="margin-top:10px">
+            <button type="button" id="backup-token-save">저장 및 연결</button>
+          </div>
+          <p id="backup-token-status" class="backup-token-status" hidden></p>
+        </div>
+
+        <!-- 설정 후 패널 -->
+        <div id="backup-panel-active" hidden>
+          <div class="backup-info">
+            <div class="backup-info-row">
+              <span class="backup-info-k">상태</span>
+              <span class="backup-info-v" id="backup-active-status">연결됨</span>
+            </div>
+            <div class="backup-info-row">
+              <span class="backup-info-k">마지막 백업</span>
+              <span class="backup-info-v" id="backup-last-time">—</span>
+            </div>
+            <div class="backup-info-row">
+              <span class="backup-info-k">Gist 주소</span>
+              <span class="backup-info-v"><a id="backup-gist-link" href="#" target="_blank" rel="noopener">보기</a></span>
+            </div>
+          </div>
+          <div class="actions" style="margin-top:12px">
+            <button type="button" id="backup-now-btn">지금 백업</button>
+            <button type="button" id="backup-restore-btn" class="secondary">Gist에서 복원</button>
+            <button type="button" id="backup-disconnect-btn" class="danger">연결 해제</button>
+          </div>
+        </div>
       </section>
     </div>
 

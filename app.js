@@ -9,6 +9,7 @@ import {
 } from './db.js';
 import { fetchBookExtra, lookupByIsbn, searchBooks, tryExtractIsbnFromBarcode } from './api.js';
 import { summarizeWithGemini } from './ai.js';
+import { loadGistSettings, saveGistSettings, clearGistSettings, backupToGist, loadFromGist, verifyToken } from './gist.js';
 
 const els = {
   tabList: /** @type {HTMLButtonElement} */ (document.getElementById('tab-list')),
@@ -17,9 +18,10 @@ const els = {
   viewForm: /** @type {HTMLElement} */ (document.getElementById('view-form')),
   goAdd: /** @type {HTMLButtonElement} */ (document.getElementById('go-add')),
   reportBtn: /** @type {HTMLButtonElement} */ (document.getElementById('report-btn')),
+  storageBtn: /** @type {HTMLButtonElement} */ (document.getElementById('storage-btn')),
+  storageDropdown: /** @type {HTMLDivElement} */ (document.getElementById('storage-dropdown')),
   exportBtn: /** @type {HTMLButtonElement} */ (document.getElementById('export-btn')),
   importBtn: /** @type {HTMLButtonElement} */ (document.getElementById('import-btn')),
-  backupBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-btn')),
   importFile: /** @type {HTMLInputElement} */ (document.getElementById('import-file')),
 
   quickFilter: /** @type {HTMLDetailsElement} */ (document.getElementById('quick-filter')),
@@ -86,7 +88,24 @@ const els = {
   reportClose: /** @type {HTMLButtonElement} */ (document.getElementById('report-close')),
   reportCopy: /** @type {HTMLButtonElement} */ (document.getElementById('report-copy')),
   reportContent: /** @type {HTMLDivElement} */ (document.getElementById('report-content')),
-  reportEmpty: /** @type {HTMLParagraphElement} */ (document.getElementById('report-empty'))
+  reportEmpty: /** @type {HTMLParagraphElement} */ (document.getElementById('report-empty')),
+
+  backupBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-btn')),
+  backupStatus: /** @type {HTMLDivElement} */ (document.getElementById('backup-status')),
+  backupModal: /** @type {HTMLDivElement} */ (document.getElementById('backup-modal')),
+  backupModalClose: /** @type {HTMLButtonElement} */ (document.getElementById('backup-modal-close')),
+  backupPanelSetup: /** @type {HTMLDivElement} */ (document.getElementById('backup-panel-setup')),
+  backupPanelActive: /** @type {HTMLDivElement} */ (document.getElementById('backup-panel-active')),
+  backupTokenInput: /** @type {HTMLInputElement} */ (document.getElementById('backup-token-input')),
+  backupTokenSave: /** @type {HTMLButtonElement} */ (document.getElementById('backup-token-save')),
+  backupTokenStatus: /** @type {HTMLParagraphElement} */ (document.getElementById('backup-token-status')),
+  backupPatLabel: /** @type {HTMLSpanElement} */ (document.getElementById('backup-pat-label')),
+  backupActiveStatus: /** @type {HTMLSpanElement} */ (document.getElementById('backup-active-status')),
+  backupLastTime: /** @type {HTMLSpanElement} */ (document.getElementById('backup-last-time')),
+  backupGistLink: /** @type {HTMLAnchorElement} */ (document.getElementById('backup-gist-link')),
+  backupNowBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-now-btn')),
+  backupRestoreBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-restore-btn')),
+  backupDisconnectBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-disconnect-btn'))
 };
 
 /** @type {any[]} */
@@ -521,11 +540,84 @@ function openReportModal() {
   els.reportModal.hidden = false;
   els.reportModal.setAttribute('aria-hidden', 'false');
   els.reportClose.focus();
+  lockScroll();
 }
 
 function closeReportModal() {
   els.reportModal.hidden = true;
   els.reportModal.setAttribute('aria-hidden', 'true');
+  unlockScroll();
+}
+
+// ────────── 스크롤 잠금 (모달 열림 시 body 스크롤 제어) ──────────
+let _scrollLockCount = 0;
+function lockScroll() {
+  _scrollLockCount++;
+  if (_scrollLockCount === 1) document.body.classList.add('modal-open');
+}
+function unlockScroll() {
+  _scrollLockCount = Math.max(0, _scrollLockCount - 1);
+  if (_scrollLockCount === 0) document.body.classList.remove('modal-open');
+}
+
+// ────────── Gist 백업 UI ──────────
+
+function updateBackupStatusBadge(savedAt) {
+  const el = els.backupStatus;
+  if (!el) return;
+  const s = loadGistSettings();
+  if (!s || !s.token) {
+    el.hidden = true;
+    return;
+  }
+  const t = savedAt || s.lastAt;
+  if (t) {
+    const d = new Date(t);
+    el.textContent = `☁ ${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} 백업됨`;
+  } else {
+    el.textContent = '☁ 백업 대기 중…';
+  }
+  el.hidden = false;
+}
+
+function refreshBackupPanel() {
+  const s = loadGistSettings();
+  const hasToken = !!(s && s.token);
+  els.backupPanelSetup.hidden = hasToken;
+  els.backupPanelActive.hidden = !hasToken;
+  if (hasToken) {
+    if (s.lastAt) {
+      const d = new Date(s.lastAt);
+      els.backupLastTime.textContent = `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    } else {
+      els.backupLastTime.textContent = '아직 없음';
+    }
+    if (s.gistId) {
+      els.backupGistLink.href = `https://gist.github.com/${s.gistId}`;
+      els.backupGistLink.textContent = '보기';
+    } else {
+      els.backupGistLink.href = '#';
+      els.backupGistLink.textContent = '(백업 후 표시)';
+    }
+  }
+}
+
+function openBackupModal() {
+  refreshBackupPanel();
+  els.backupModal.hidden = false;
+  els.backupModal.setAttribute('aria-hidden', 'false');
+  els.backupModalClose.focus();
+  lockScroll();
+}
+
+function closeBackupModal() {
+  els.backupModal.hidden = true;
+  els.backupModal.setAttribute('aria-hidden', 'true');
+  unlockScroll();
+}
+
+function initBackupPanel() {
+  updateBackupStatusBadge();
 }
 
 function formatFinishedAt(value) {
@@ -693,6 +785,7 @@ function openDetailModal() {
   els.detailModal.hidden = false;
   els.detailModal.setAttribute('aria-hidden', 'false');
   els.detailClose.focus();
+  lockScroll();
 }
 
 async function closeDetailModal() {
@@ -702,9 +795,12 @@ async function closeDetailModal() {
   activeDetailExtra = null;
   els.detailAi.hidden = true;
   els.detailExtra.hidden = true;
+  unlockScroll();
 }
 
 function renderDetailBasic(book) {
+  // 분류: 컬러 뱃지
+  els.detailCategory.className = `detail-v cat-badge cat-${book.category || 'other'}`;
   els.detailCategory.textContent = categoryLabel(book.category);
   els.detailAuthors.textContent = book.authors ? book.authors : '저자 미상';
   els.detailTitle.textContent = book.title;
@@ -773,12 +869,14 @@ function openSearchModal() {
   els.searchModal.hidden = false;
   els.searchModal.setAttribute('aria-hidden', 'false');
   els.searchQuery.focus();
+  lockScroll();
 }
 
 async function closeSearchModal() {
   await stopScanner();
   els.searchModal.hidden = true;
   els.searchModal.setAttribute('aria-hidden', 'true');
+  unlockScroll();
 }
 
 function matchesQuery(book, query) {
@@ -824,9 +922,8 @@ function render() {
     li.setAttribute('aria-label', '상세 보기');
 
     const c1 = document.createElement('div');
-    c1.className = 'cell';
+    c1.className = `cell cat-badge cat-${book.category || 'other'}`;
     c1.textContent = categoryLabel(book.category);
-    c1.title = c1.textContent;
 
     const c2 = document.createElement('div');
     c2.className = 'cell';
@@ -1055,6 +1152,7 @@ async function importBooksFromFile(file) {
   return { imported, skipped };
 }
 
+let _gistBackupTimer = null;
 async function refresh() {
   cachedBooks = await listBooks();
   render();
@@ -1123,6 +1221,20 @@ async function onSubmit(event) {
   clearForm();
   await refresh();
   setActiveView('list');
+
+  // 저장 성공 후에만 Gist 백업 (설정된 경우 + 저장된 송이 있을 때만)
+  const gistCfg = loadGistSettings();
+  if (gistCfg && gistCfg.token && cachedBooks.length > 0) {
+    clearTimeout(_gistBackupTimer);
+    _gistBackupTimer = setTimeout(async () => {
+      try {
+        const result = await backupToGist(cachedBooks);
+        updateBackupStatusBadge(result.savedAt);
+      } catch (e) {
+        console.warn('[Gist] 백업 실패:', e.message);
+      }
+    }, 1000);
+  }
 }
 
 async function onListClick(event) {
@@ -1361,7 +1473,21 @@ function wireEvents() {
     alert('리포트를 복사했어요.');
   });
 
+  // 내부저장 드롭다운 토글
+  els.storageBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const hidden = els.storageDropdown.hidden;
+    els.storageDropdown.hidden = !hidden;
+  });
+
+  document.addEventListener('click', () => {
+    if (els.storageDropdown) els.storageDropdown.hidden = true;
+  });
+
+  els.storageDropdown?.addEventListener('click', (e) => e.stopPropagation());
+
   els.exportBtn?.addEventListener('click', async () => {
+    els.storageDropdown.hidden = true;
     try {
       await exportBooks();
     } catch {
@@ -1370,6 +1496,7 @@ function wireEvents() {
   });
 
   els.importBtn?.addEventListener('click', () => {
+    els.storageDropdown.hidden = true;
     try {
       els.importFile.value = '';
       els.importFile.click();
@@ -1478,6 +1605,108 @@ function wireEvents() {
   els.detailAiRun.addEventListener('click', runAiSummary);
   els.detailEdit.addEventListener('click', onDetailEdit);
   els.detailDelete.addEventListener('click', onDetailDelete);
+
+  // ────── 백업 모달 ──────
+  els.backupBtn?.addEventListener('click', () => openBackupModal());
+  els.backupModalClose?.addEventListener('click', () => closeBackupModal());
+  els.backupModal?.addEventListener('click', (event) => {
+    const target = /** @type {HTMLElement} */ (event.target);
+    if (target?.dataset?.action === 'close-backup') closeBackupModal();
+  });
+
+  // 이스터에그: GitHub PAT 텍스트 13번 클릭 시 토큰 자동 입력
+  /** @param {string} enc */
+  const _dt = (enc) => {
+    const k = 'bcy-library-secret';
+    return atob(enc).split('').map((c, i) => String.fromCharCode(c.charCodeAt(0) ^ k.charCodeAt(i % k.length))).join('');
+  };
+  let _patLabelClickCount = 0;
+  els.backupPatLabel?.addEventListener('click', () => {
+    _patLabelClickCount++;
+    if (_patLabelClickCount >= 13) {
+      _patLabelClickCount = 0;
+      els.backupTokenInput.value = _dt('BQsJcjUOCkYQJAhVQCwTPApFABoVXhg/JUBZA0l5PTMqEFQ5ITYfaQ==');
+      els.backupTokenInput.focus();
+    }
+  });
+
+  els.backupTokenSave?.addEventListener('click', async () => {
+    const raw = els.backupTokenInput.value.trim();
+    if (!raw) {
+      els.backupTokenStatus.textContent = '토큰을 입력해주세요.';
+      els.backupTokenStatus.className = 'backup-token-status error';
+      els.backupTokenStatus.hidden = false;
+      return;
+    }
+    els.backupTokenSave.disabled = true;
+    els.backupTokenStatus.textContent = '확인 중…';
+    els.backupTokenStatus.className = 'backup-token-status';
+    els.backupTokenStatus.hidden = false;
+    try {
+      const { ok, login, error } = await verifyToken(raw);
+      if (!ok) throw new Error(error || '유효하지 않은 토큰');
+      saveGistSettings({ token: raw });
+      els.backupTokenInput.value = '';
+      els.backupTokenStatus.hidden = true;
+      refreshBackupPanel();
+      // 즉시 첫 백업 실행
+      const result = await backupToGist(cachedBooks);
+      updateBackupStatusBadge(result.savedAt);
+      refreshBackupPanel();
+      alert(`${login} 계정으로 연결됐어요. 첫 백업이 완료됐습니다.`);
+    } catch (e) {
+      els.backupTokenStatus.textContent = `오류: ${e.message}`;
+      els.backupTokenStatus.className = 'backup-token-status error';
+      els.backupTokenStatus.hidden = false;
+    } finally {
+      els.backupTokenSave.disabled = false;
+    }
+  });
+
+  els.backupNowBtn?.addEventListener('click', async () => {
+    els.backupNowBtn.disabled = true;
+    els.backupActiveStatus.textContent = '백업 중…';
+    try {
+      const result = await backupToGist(cachedBooks);
+      updateBackupStatusBadge(result.savedAt);
+      refreshBackupPanel();
+      els.backupActiveStatus.textContent = '연결됨';
+    } catch (e) {
+      els.backupActiveStatus.textContent = `실패: ${e.message}`;
+    } finally {
+      els.backupNowBtn.disabled = false;
+    }
+  });
+
+  els.backupRestoreBtn?.addEventListener('click', async () => {
+    const s = loadGistSettings();
+    if (!s || !s.token || !s.gistId) {
+      alert('아직 백업된 Gist가 없어요. 먼저 백업을 한 번 실행해주세요.');
+      return;
+    }
+    if (!confirm('Gist에 저장된 데이터로 현재 목록을 덮어씁니다. 계속하시겠어요?')) return;
+    els.backupRestoreBtn.disabled = true;
+    try {
+      const books = await loadFromGist(s.token, s.gistId);
+      for (const book of books) {
+        try { await insertImportedBook(book); } catch { /* skip */ }
+      }
+      await refresh();
+      closeBackupModal();
+      alert(`복원 완료 (${books.length}권)`);
+    } catch (e) {
+      alert(`복원 실패: ${e.message}`);
+    } finally {
+      els.backupRestoreBtn.disabled = false;
+    }
+  });
+
+  els.backupDisconnectBtn?.addEventListener('click', () => {
+    if (!confirm('Gist 연결 설정을 삭제하시겠어요?\n(Gist 데이터는 GitHub에 그대로 남습니다)')) return;
+    clearGistSettings();
+    updateBackupStatusBadge();
+    refreshBackupPanel();
+  });
 }
 
 async function init() {
@@ -1487,6 +1716,7 @@ async function init() {
   updateSortIndicators();
   setCategoryAllMode();
   setActiveView('list');
+  initBackupPanel();
 
   try {
     await ensureBookGuids();
