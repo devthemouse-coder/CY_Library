@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bcy-library-v21';
+const CACHE_NAME = 'bcy-library-v22';
 const ASSETS = [
   './',
   './index.html',

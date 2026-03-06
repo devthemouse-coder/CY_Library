@@ -16,6 +16,7 @@ const els = {
   viewList: /** @type {HTMLElement} */ (document.getElementById('view-list')),
   viewForm: /** @type {HTMLElement} */ (document.getElementById('view-form')),
   goAdd: /** @type {HTMLButtonElement} */ (document.getElementById('go-add')),
+  reportBtn: /** @type {HTMLButtonElement} */ (document.getElementById('report-btn')),
   exportBtn: /** @type {HTMLButtonElement} */ (document.getElementById('export-btn')),
   importBtn: /** @type {HTMLButtonElement} */ (document.getElementById('import-btn')),
   backupBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-btn')),
@@ -48,6 +49,8 @@ const els = {
   cancel: /** @type {HTMLButtonElement} */ (document.getElementById('cancel-btn')),
   openSearchModal: /** @type {HTMLButtonElement} */ (document.getElementById('open-search-modal')),
   search: /** @type {HTMLInputElement} */ (document.getElementById('search')),
+  listTotalBadge: /** @type {HTMLSpanElement} */ (document.getElementById('list-total-badge')),
+  searchCountBadge: /** @type {HTMLSpanElement} */ (document.getElementById('search-count-badge')),
   list: /** @type {HTMLUListElement} */ (document.getElementById('book-list')),
   empty: /** @type {HTMLParagraphElement} */ (document.getElementById('empty')),
 
@@ -77,7 +80,13 @@ const els = {
   detailAiRun: /** @type {HTMLButtonElement} */ (document.getElementById('detail-ai-run')),
   detailAi: /** @type {HTMLDivElement} */ (document.getElementById('detail-ai')),
   detailEdit: /** @type {HTMLButtonElement} */ (document.getElementById('detail-edit')),
-  detailDelete: /** @type {HTMLButtonElement} */ (document.getElementById('detail-delete'))
+  detailDelete: /** @type {HTMLButtonElement} */ (document.getElementById('detail-delete')),
+
+  reportModal: /** @type {HTMLDivElement} */ (document.getElementById('report-modal')),
+  reportClose: /** @type {HTMLButtonElement} */ (document.getElementById('report-close')),
+  reportCopy: /** @type {HTMLButtonElement} */ (document.getElementById('report-copy')),
+  reportContent: /** @type {HTMLDivElement} */ (document.getElementById('report-content')),
+  reportEmpty: /** @type {HTMLParagraphElement} */ (document.getElementById('report-empty'))
 };
 
 /** @type {any[]} */
@@ -161,10 +170,26 @@ function getInitialKey(book) {
   return '#';
 }
 
+function getTextInitial(text) {
+  const t = String(text || '').trim();
+  if (!t) return '';
+  const first = t[0];
+  const hangulInitial = getHangulInitialChar(first);
+  if (hangulInitial) return hangulInitial;
+  const upper = first.toUpperCase();
+  if (upper >= 'A' && upper <= 'Z') return upper;
+  if (first >= '0' && first <= '9') return first;
+  return '#';
+}
+
 function matchesInitial(book) {
   if (!activeInitial) return true;
-  const key = getInitialKey(book);
-  return key === activeInitial;
+  const primaryAuthor = String(book?.authors || '').trim().split(',')[0].trim();
+  return (
+    getTextInitial(primaryAuthor) === activeInitial ||
+    getTextInitial(book.title) === activeInitial ||
+    getTextInitial(book.note) === activeInitial
+  );
 }
 
 function matchesCategory(book) {
@@ -341,6 +366,166 @@ function categoryLabel(value) {
     default:
       return '그 외';
   }
+}
+
+function normalizeAuthorKey(raw) {
+  const a = String(raw || '').trim();
+  return a ? a : '저자 미상';
+}
+
+function compareAuthorKey(a, b) {
+  const ax = a === '저자 미상' ? '~~~~' : a;
+  const bx = b === '저자 미상' ? '~~~~' : b;
+  return ax.localeCompare(bx, 'ko', { sensitivity: 'base' });
+}
+
+function compareTitle(a, b) {
+  return String(a || '').localeCompare(String(b || ''), 'ko', { sensitivity: 'base' });
+}
+
+function getReportBooks() {
+  const query = els.search.value.trim();
+  return cachedBooks
+    .filter((b) => matchesQuery(b, query))
+    .filter((b) => matchesInitial(b))
+    .filter((b) => matchesCategory(b));
+}
+
+function buildReportModel(books) {
+  /** @type {Map<string, Map<string, Set<string>>>} */
+  const byCategory = new Map();
+
+  for (const b of books) {
+    const category = String(b?.category || 'kr');
+    const author = normalizeAuthorKey(b?.authors);
+    const title = String(b?.title || '').trim();
+    if (!title) continue;
+
+    if (!byCategory.has(category)) byCategory.set(category, new Map());
+    const byAuthor = byCategory.get(category);
+    if (!byAuthor.has(author)) byAuthor.set(author, new Set());
+    byAuthor.get(author).add(title);
+  }
+
+  return byCategory;
+}
+
+function renderReport() {
+  const books = getReportBooks();
+  const model = buildReportModel(books);
+
+  els.reportContent.innerHTML = '';
+
+  const orderedCategories = ['kr', 'en', 'eu', 'jp', 'other'];
+  const sections = [];
+
+  for (const cat of orderedCategories) {
+    const byAuthor = model.get(cat);
+    if (!byAuthor || byAuthor.size === 0) continue;
+
+    const authors = Array.from(byAuthor.keys()).sort(compareAuthorKey);
+    const section = document.createElement('section');
+
+    const h = document.createElement('h3');
+    h.className = 'report-category';
+    h.textContent = categoryLabel(cat);
+    section.appendChild(h);
+
+    const lines = document.createElement('div');
+    lines.className = 'report-lines';
+
+    for (const author of authors) {
+      const titles = Array.from(byAuthor.get(author) || []).sort(compareTitle);
+
+      const line = document.createElement('div');
+      line.className = 'report-line';
+
+      const a = document.createElement('span');
+      a.className = 'report-author';
+      a.textContent = `${author}:`;
+
+      const w = document.createElement('span');
+      w.className = 'report-works';
+      w.textContent = titles.join(', ');
+
+      line.appendChild(a);
+      line.appendChild(w);
+      lines.appendChild(line);
+    }
+
+    section.appendChild(lines);
+    sections.push(section);
+  }
+
+  for (const s of sections) els.reportContent.appendChild(s);
+
+  els.reportEmpty.hidden = sections.length !== 0;
+  if (sections.length === 0) {
+    els.reportEmpty.textContent = '리포트로 만들 책이 없어요.';
+  }
+}
+
+function buildReportPlainText() {
+  const books = getReportBooks();
+  const model = buildReportModel(books);
+  const orderedCategories = ['kr', 'en', 'eu', 'jp', 'other'];
+
+  const out = [];
+  for (const cat of orderedCategories) {
+    const byAuthor = model.get(cat);
+    if (!byAuthor || byAuthor.size === 0) continue;
+
+    out.push(categoryLabel(cat));
+    const authors = Array.from(byAuthor.keys()).sort(compareAuthorKey);
+    for (const author of authors) {
+      const titles = Array.from(byAuthor.get(author) || []).sort(compareTitle);
+      out.push(`${author}: ${titles.join(', ')}`);
+    }
+    out.push('');
+  }
+
+  return out.join('\n').trim();
+}
+
+async function copyTextToClipboard(text) {
+  const t = String(text || '').trim();
+  if (!t) return false;
+
+  try {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      await navigator.clipboard.writeText(t);
+      return true;
+    }
+  } catch {
+    // fallback below
+  }
+
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = t;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand('copy');
+    ta.remove();
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
+function openReportModal() {
+  renderReport();
+  els.reportModal.hidden = false;
+  els.reportModal.setAttribute('aria-hidden', 'false');
+  els.reportClose.focus();
+}
+
+function closeReportModal() {
+  els.reportModal.hidden = true;
+  els.reportModal.setAttribute('aria-hidden', 'true');
 }
 
 function formatFinishedAt(value) {
@@ -614,6 +799,17 @@ function render() {
     .filter((b) => matchesCategory(b))
     .slice()
     .sort(compareBooks);
+
+  // 전체 건수 배지
+  els.listTotalBadge.textContent = String(cachedBooks.length);
+
+  // 검색 건수 배지 (검색어가 있을 때만 표시)
+  if (query) {
+    els.searchCountBadge.textContent = books.length + '건';
+    els.searchCountBadge.hidden = false;
+  } else {
+    els.searchCountBadge.hidden = true;
+  }
 
   els.list.innerHTML = '';
   els.empty.hidden = books.length !== 0;
@@ -1147,6 +1343,22 @@ function wireEvents() {
   els.goAdd.addEventListener('click', () => {
     clearForm();
     setActiveView('form');
+  });
+
+  els.reportBtn?.addEventListener('click', () => openReportModal());
+  els.reportClose?.addEventListener('click', () => closeReportModal());
+  els.reportModal?.addEventListener('click', (event) => {
+    const target = /** @type {HTMLElement} */ (event.target);
+    if (target?.dataset?.action === 'close-report') closeReportModal();
+  });
+  els.reportCopy?.addEventListener('click', async () => {
+    const text = buildReportPlainText();
+    const ok = await copyTextToClipboard(text);
+    if (!ok) {
+      alert('복사에 실패했어요. (브라우저 권한/보안 설정을 확인해주세요)');
+      return;
+    }
+    alert('리포트를 복사했어요.');
   });
 
   els.exportBtn?.addEventListener('click', async () => {

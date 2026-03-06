@@ -1,0 +1,4048 @@
+{
+  "app": "B.CY Library",
+  "version": 1,
+  "exportedAt": "2026-03-06T07:40:20.518Z",
+  "books": [
+    {
+      "guid": "0732ac73-bd9d-492b-a1f7-6c1be5d7c3a9",
+      "category": "kr",
+      "title": "객주",
+      "authors": "김주영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9965684a-6e90-4e52-99a9-09b10f2f315c",
+      "category": "kr",
+      "title": "시간망명자",
+      "authors": "김주영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d26df1ee-8303-47dd-a999-4b817a72193f",
+      "category": "kr",
+      "title": "잘가요엄마",
+      "authors": "김주영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "12f118d4-3a1c-4e70-a56d-6418483da958",
+      "category": "kr",
+      "title": "고향물길걸으며",
+      "authors": "김주영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "03d81c29-9982-4581-90f0-9e985daece87",
+      "category": "kr",
+      "title": "증발된여자",
+      "authors": "김영주",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3e7b4565-4f66-49d8-ab90-60e0d18bd507",
+      "category": "kr",
+      "title": "대발해",
+      "authors": "김홍신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a2e859ab-ca3f-48de-b908-8ff7117f330c",
+      "category": "kr",
+      "title": "살수",
+      "authors": "김진명",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4d97778a-c2b9-4049-aff4-53658089cbe1",
+      "category": "kr",
+      "title": "천년의금서",
+      "authors": "김진명",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a59379c5-8f7d-42fc-91cc-d5df02171c5c",
+      "category": "kr",
+      "title": "그섬에내가",
+      "authors": "김연갑",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7cfd48f3-c824-4b85-9caf-810a1905c59b",
+      "category": "kr",
+      "title": "쇠꼬챙이를든도둑",
+      "authors": "김경엽",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "202483f1-9fe3-434c-8665-16d4c94d7d73",
+      "category": "kr",
+      "title": "요하",
+      "authors": "김성한",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5435f2ac-e3d7-42cb-9cd9-3032b48a52d5",
+      "category": "kr",
+      "title": "후쿠오카살인",
+      "authors": "김성종",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2e8e2c8f-e653-4549-9987-4c943d17c6aa",
+      "category": "kr",
+      "title": "계엄령의밤",
+      "authors": "김성종",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f0940f44-2496-4e4d-8cfd-dfae1b867ef2",
+      "category": "kr",
+      "title": "한국추리소설걸작선",
+      "authors": "김내성외",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "aadc813c-db40-44fa-85e9-8638211bf59a",
+      "category": "kr",
+      "title": "작은땅의야수들",
+      "authors": "김주혜",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c59570a1-53e2-4360-8271-7081e8fa6656",
+      "category": "kr",
+      "title": "소설직지",
+      "authors": "김미수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "563eefb6-8d3c-4fc1-85ce-2d5a3f333a78",
+      "category": "kr",
+      "title": "곰탕",
+      "authors": "김영택",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "08cf8bcd-f16b-440e-91bd-c2ee7d3bd586",
+      "category": "kr",
+      "title": "회색인간",
+      "authors": "김동식",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "655d71ff-1582-402d-856b-81a2e5ea3a17",
+      "category": "kr",
+      "title": "미실",
+      "authors": "김별아",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6c95b9be-46b9-4736-b027-a5f970ac189c",
+      "category": "kr",
+      "title": "강산무진",
+      "authors": "김훈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b6500354-938c-487d-90ff-6c0b505a0a17",
+      "category": "kr",
+      "title": "공터에서",
+      "authors": "김훈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8b3dc73f-6b74-46a1-adbd-056b277ec196",
+      "category": "kr",
+      "title": "달너머로달리는말",
+      "authors": "김훈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a057b086-bf2a-4f6d-9e08-e8a41e2d4e4c",
+      "category": "kr",
+      "title": "오키나와스파이",
+      "authors": "김술",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "09f7634d-9726-46a7-9998-3a3bdf3797e0",
+      "category": "kr",
+      "title": "고려거란전쟁",
+      "authors": "길승수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6d0b2281-ed30-4153-92e7-98f804f411da",
+      "category": "kr",
+      "title": "지리산행복학교",
+      "authors": "공지영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "46f91db6-79bc-45b8-8ee3-310bea5cb8d1",
+      "category": "kr",
+      "title": "도가니",
+      "authors": "공지영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5e1fe787-622a-4638-9c64-8b5992b75e90",
+      "category": "kr",
+      "title": "상처없는영혼",
+      "authors": "공지영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "07213762-c42c-4a87-a64f-df3d94b81f2e",
+      "category": "kr",
+      "title": "맨발로골목을돌다",
+      "authors": "공지영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0cf3e2cf-75cb-4a8e-a867-e7716443affd",
+      "category": "kr",
+      "title": "대적홍길동",
+      "authors": "권오단",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4fb39006-f396-45a5-9c35-6589462e0a83",
+      "category": "kr",
+      "title": "전우치",
+      "authors": "권오단",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "07357ce4-3f74-42d9-8bee-2ab919f46f4f",
+      "category": "kr",
+      "title": "하란사",
+      "authors": "권비영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c29451b5-09ea-483e-88cd-3e9420e8ac61",
+      "category": "kr",
+      "title": "그해겨울은따뜻했네",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "52d2784e-ed9d-4591-ba29-a6a54f70a7e6",
+      "category": "kr",
+      "title": "휘청거리는오후",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "06e043f4-9056-4207-bf69-24bf7b7eb662",
+      "category": "kr",
+      "title": "도시의흉년",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "95c2eca5-6d66-4493-8b34-039f62f65d62",
+      "category": "kr",
+      "title": "그많던싱아는누가다먹었을까",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "92b82fbc-d542-4ab7-99d2-eef902ddae53",
+      "category": "kr",
+      "title": "나는왜작은일에만분해하는가",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fd297090-71f5-4331-b9e3-9842dde4f099",
+      "category": "kr",
+      "title": "그대아직도꿈꾸는가",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d22ef832-bdc9-417c-8b8e-fdadbd08929e",
+      "category": "kr",
+      "title": "그산이정말거기있었을까",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3d04b2f6-9c47-42bb-a1ba-70faa4af07fa",
+      "category": "kr",
+      "title": "오만과몽상",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "db2af94c-6ce9-48de-a793-bd6e8d712ccf",
+      "category": "kr",
+      "title": "잃어버린여행가방",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a800656f-5084-40d5-b6b8-db0635fb8afe",
+      "category": "kr",
+      "title": "못가본길이더아름답다",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "69293dda-4285-4040-9706-7513c855e927",
+      "category": "kr",
+      "title": "모래알만한진실이라도",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "728634c0-dc73-4dba-9eae-ac70b363b945",
+      "category": "kr",
+      "title": "다만여행자가될수있다면",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8c65505b-f9e7-4e75-8b16-8b5bc26be88a",
+      "category": "kr",
+      "title": "사랑을무게로안느끼게",
+      "authors": "박완서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "84e8c388-1ffb-40bf-91f0-10c25909d97f",
+      "category": "kr",
+      "title": "더러운책상",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b2c85417-ca9f-4def-9efd-d264254923fa",
+      "category": "kr",
+      "title": "외등",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "002f1899-7a97-43b8-a6c6-1c94b1b34c2c",
+      "category": "kr",
+      "title": "나의손은말굽으로",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3efa24df-6fae-456b-8d43-c9a9a5f17b2f",
+      "category": "kr",
+      "title": "소금",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "10dc8ae0-8448-4b5d-a413-95882185c6d0",
+      "category": "kr",
+      "title": "유리",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8764f5f8-05f9-4457-9d8c-3f1138fc6fa6",
+      "category": "kr",
+      "title": "틀",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1f4bd785-280d-43ed-bcdc-479116d6138d",
+      "category": "kr",
+      "title": "은교",
+      "authors": "박범신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "659316af-6f14-4a4b-a716-95327a3cda93",
+      "category": "kr",
+      "title": "토지1",
+      "authors": "박경리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "521e948c-b6bd-487f-a331-517c27501099",
+      "category": "kr",
+      "title": "생명의아픔",
+      "authors": "박경리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "876a0861-21e5-49b2-8e33-e1e34d98b195",
+      "category": "kr",
+      "title": "성녀와마녀",
+      "authors": "박경리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9870fe05-5f41-4231-aa39-2deb325abb6b",
+      "category": "kr",
+      "title": "죄인들의숙제",
+      "authors": "박경리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "002bf4cc-0f18-4f2c-b403-c7983759298c",
+      "category": "kr",
+      "title": "김약국의딸들",
+      "authors": "박경리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "300a5d34-2201-4740-834e-4f2ecf993321",
+      "category": "kr",
+      "title": "파시",
+      "authors": "박경리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "38982479-6d19-4761-9abe-59871d952ef3",
+      "category": "kr",
+      "title": "간다바라",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b0ac6979-095e-4e5e-9255-4981cab3aed2",
+      "category": "kr",
+      "title": "영혼의모음",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c3dad370-9a1f-4d97-8ddc-65f2778cba06",
+      "category": "kr",
+      "title": "아름다운마무리",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "62b1b25d-4020-425b-9440-c226aab474eb",
+      "category": "kr",
+      "title": "오두막편지",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9b640988-f492-4698-bbda-f1c1720cdc9d",
+      "category": "kr",
+      "title": "길이아니면가지말라",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f51a03d9-bce6-4614-8d62-c5b663477bd2",
+      "category": "kr",
+      "title": "행복은간장밥",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4d9695e2-401a-4bba-b3bb-daf9eea11096",
+      "category": "kr",
+      "title": "진짜나를찾아라",
+      "authors": "法頂",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a3977b2b-d481-4dc0-b446-1c06bc9e3299",
+      "category": "kr",
+      "title": "청계산장재판",
+      "authors": "박은우",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c084e9f4-1980-44e1-a401-ed46c16b7daf",
+      "category": "kr",
+      "title": "강감찬과고려전쟁",
+      "authors": "박성종",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f58833b1-4b50-410b-ac60-2abfffbb27a0",
+      "category": "kr",
+      "title": "침객",
+      "authors": "박광수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "81e86852-cf12-46e1-885e-4ce42a22f4b4",
+      "category": "kr",
+      "title": "태양의그늘",
+      "authors": "박종휘",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5480e151-8f12-46e4-b8e1-e0699c6c058a",
+      "category": "kr",
+      "title": "야단법석",
+      "authors": "法輪",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "72eb8af9-3723-4841-9ac8-861b4aded18e",
+      "category": "kr",
+      "title": "지리산은내친구",
+      "authors": "박인순",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d6847b06-a758-487f-9d72-f5e5b869e2f7",
+      "category": "kr",
+      "title": "맑고향기로운법정",
+      "authors": "백금남",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1e1b457a-7e17-48ae-9b80-a4e2c5d527a9",
+      "category": "kr",
+      "title": "검계",
+      "authors": "백금남",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "63abc8cc-92e8-410e-bed5-0618f2a914e1",
+      "category": "kr",
+      "title": "천황살해사건",
+      "authors": "백금남",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "20e3eaab-b782-4a16-bb62-34706d66e89f",
+      "category": "kr",
+      "title": "바람불면다시오리라",
+      "authors": "백금남",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "955ab77f-d2f5-4926-b4a6-d02ff491697f",
+      "category": "kr",
+      "title": "누비처네",
+      "authors": "목성균",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b9582c0e-05fa-4dd1-a96b-da5755a99157",
+      "category": "kr",
+      "title": "외딴방",
+      "authors": "신경숙",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "67659a93-b4f0-4790-9a25-489f37f20d9b",
+      "category": "kr",
+      "title": "총의울음",
+      "authors": "손상익",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1b9efd72-77ed-464b-92cf-bac288189d12",
+      "category": "kr",
+      "title": "뿔",
+      "authors": "손종일",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5f32d367-c84a-4bbf-b6a9-37a6c5251dd0",
+      "category": "kr",
+      "title": "환상서점",
+      "authors": "소서림",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2961cf65-f2cc-4a41-a01d-ee0971a97e74",
+      "category": "kr",
+      "title": "착각의경제학",
+      "authors": "세일러",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2a60d025-f803-4212-ab4c-93ee4a1a4959",
+      "category": "kr",
+      "title": "대무신왕",
+      "authors": "이수광",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "90afd776-0692-44f2-bde5-add74b179c0d",
+      "category": "kr",
+      "title": "조선여형사봉생",
+      "authors": "이수광",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fbabfea8-6092-41a3-b625-e7815ee45cfe",
+      "category": "kr",
+      "title": "잠들지않는밤",
+      "authors": "이수광",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5bafba9a-6e91-47d0-b970-abf3e51f3ac8",
+      "category": "kr",
+      "title": "칼",
+      "authors": "이승우",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f96f3aba-b917-4c2f-9d4e-0767527e0c79",
+      "category": "kr",
+      "title": "그테러리스트귀환",
+      "authors": "이병주",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "07414858-02b1-468d-91e9-47da7855c309",
+      "category": "kr",
+      "title": "천명",
+      "authors": "이병주",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3557a8a2-55eb-4c56-acac-9e4d55e4898c",
+      "category": "kr",
+      "title": "산하",
+      "authors": "이병주",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e4f84b8c-bd21-4e64-9816-7d003800992b",
+      "category": "kr",
+      "title": "칼",
+      "authors": "이외수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "bfb4f293-bc1a-4e88-ac72-bf236b71ac8c",
+      "category": "kr",
+      "title": "장외인간",
+      "authors": "이외수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2e476fe0-1d29-4bc3-ac21-d4693cefc9ff",
+      "category": "kr",
+      "title": "보복전문대행회사1",
+      "authors": "이외수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5cf1a136-bfe2-458c-a511-3c99bb07a980",
+      "category": "kr",
+      "title": "보복전문대행회사2",
+      "authors": "이외수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0423003f-4a3f-44a2-bd13-c568f0e070d7",
+      "category": "kr",
+      "title": "벽오금학도",
+      "authors": "이외수",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ce66036e-5aa1-42cf-99d9-a40a6a53f968",
+      "category": "kr",
+      "title": "비늘",
+      "authors": "이선미",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2e375082-3d2f-424f-bd76-38ad2306e2a6",
+      "category": "kr",
+      "title": "삼대",
+      "authors": "이원호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "549cbfa0-b9c8-48d4-84cf-cc086b155d43",
+      "category": "kr",
+      "title": "테러리스트",
+      "authors": "이원호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e32f117b-2e7c-4619-b306-eded2e682659",
+      "category": "kr",
+      "title": "암살",
+      "authors": "이이녕",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7ce59f0d-d9ae-43f7-a76c-bb0e53376caa",
+      "category": "kr",
+      "title": "조선승려는",
+      "authors": "이덕일",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8f6d225a-8643-40d6-879f-e85cab925e65",
+      "category": "kr",
+      "title": "병신머저리",
+      "authors": "이청준",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d2730f85-2303-471c-916e-641599adcea2",
+      "category": "kr",
+      "title": "야수의인장",
+      "authors": "이준희",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e308033e-199f-4d0e-831c-90679d72dcfe",
+      "category": "kr",
+      "title": "지문",
+      "authors": "이선영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e3e41839-8f15-447d-a34a-2bcbd43ec918",
+      "category": "kr",
+      "title": "남부군",
+      "authors": "이태",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "cf31beb1-40d6-4ba4-9255-a34b968d53b0",
+      "category": "kr",
+      "title": "부서진여름",
+      "authors": "이정명",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "27287d14-b8b5-404d-97cd-a5f7639af82b",
+      "category": "kr",
+      "title": "악의추억",
+      "authors": "이정명",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c9a7a0b8-2a83-4b1e-9109-3c01a7fb218f",
+      "category": "kr",
+      "title": "별을스치는바람",
+      "authors": "이정명",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4606effd-8074-45c8-bf65-a6cee0393a1f",
+      "category": "kr",
+      "title": "테러리스트1",
+      "authors": "이원호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ccc5bffe-d6e2-40f2-950c-e5d9fc5ff4a8",
+      "category": "kr",
+      "title": "테러리스트2",
+      "authors": "이원호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1a54efed-69a4-4932-836b-067527a7b0ab",
+      "category": "kr",
+      "title": "대장김창수",
+      "authors": "이원태",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "32918cff-e2ac-4556-bbbb-c1dd9d397ccd",
+      "category": "kr",
+      "title": "녹천에는똥이많다",
+      "authors": "이창동",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7882a61a-9cb2-4e2d-b04d-7b55e8bc968b",
+      "category": "kr",
+      "title": "신들메를고쳐메며",
+      "authors": "이문열",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "def4c306-db61-42f3-a4cd-39e282944f3b",
+      "category": "kr",
+      "title": "담덕1",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7a0124c3-24e9-4d3d-8116-cc3813c4dc88",
+      "category": "kr",
+      "title": "담덕2",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "804f8858-4c8c-4a54-83ac-794e9e1c7b69",
+      "category": "kr",
+      "title": "담덕3",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5b3e3930-647b-4fda-9f0b-65428f73ae08",
+      "category": "kr",
+      "title": "담덕4",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d8957eb0-9722-4f4b-8a78-19714fc4159d",
+      "category": "kr",
+      "title": "담덕5",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c20e7cb3-d8bc-4ac2-b5a4-f70b587866aa",
+      "category": "kr",
+      "title": "담덕6",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4df7b2bf-3b1c-4c71-a098-35f1add41cd6",
+      "category": "kr",
+      "title": "담덕7",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "284d8531-82c3-4346-8a6e-e5bec893a71e",
+      "category": "kr",
+      "title": "담덕8",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "eaaf0fb8-e95e-41f9-9107-6ae50bc048ac",
+      "category": "kr",
+      "title": "담덕9",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3de933be-28cc-4eda-83ab-e62025cd4e98",
+      "category": "kr",
+      "title": "담덕10",
+      "authors": "엄광용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "44337060-3c83-4fc8-8809-96130aa32915",
+      "category": "kr",
+      "title": "소서노",
+      "authors": "윤선미",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0c469c49-7ae7-46ec-b20c-ea4a924845f9",
+      "category": "kr",
+      "title": "기담",
+      "authors": "오정희",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ea87570a-2979-4da5-8efa-1a5081e1ced8",
+      "category": "kr",
+      "title": "미늘",
+      "authors": "안정호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "31a63a36-14a2-43c8-b48c-00e75faf3d86",
+      "category": "kr",
+      "title": "개성아씨",
+      "authors": "안도남",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e0c0d494-b5cc-413a-8036-42a9e53886f5",
+      "category": "kr",
+      "title": "북간도1",
+      "authors": "안수길",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "71d8075c-23d8-4606-b459-78481682c5a7",
+      "category": "kr",
+      "title": "북간도2",
+      "authors": "안수길",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7e3f8a36-c7e9-4995-9c92-5ce75acf1c9e",
+      "category": "kr",
+      "title": "자산어보",
+      "authors": "오서영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "426c35aa-360d-4b57-9f5b-6c8b3b329878",
+      "category": "kr",
+      "title": "원행",
+      "authors": "오서영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "373cbcc0-4e23-4046-a3fa-66749f7ed837",
+      "category": "kr",
+      "title": "고려의비밀",
+      "authors": "오시은",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "95fe9c6f-6999-46ff-9e85-f4bca988dbe6",
+      "category": "kr",
+      "title": "7년의밤",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "de30bec8-8d6f-42b5-9bb4-2e52ed72daa4",
+      "category": "kr",
+      "title": "내심장을쏴라",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7af9c74f-9e93-4e3e-87ee-979cba0d3d78",
+      "category": "kr",
+      "title": "28",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0a1d049a-97d9-4205-bd2e-558443393e16",
+      "category": "kr",
+      "title": "완전한행복",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e8acf1b0-51e9-46ff-97c5-ecabf7586fd8",
+      "category": "kr",
+      "title": "진이지니",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3c64bca6-3cd4-4d46-84c1-d6a743eed6b0",
+      "category": "kr",
+      "title": "영원한천국",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a9b45a1c-8e5a-45aa-9c78-a8413ac3bed0",
+      "category": "kr",
+      "title": "종의기원",
+      "authors": "정유정",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "12a17511-5d56-4574-8cff-99c3671c1d1d",
+      "category": "kr",
+      "title": "실상사",
+      "authors": "정도상",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0ea4388d-3def-4225-891a-93348b5f54e1",
+      "category": "kr",
+      "title": "낙타",
+      "authors": "정도상",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "beba7749-d18a-44db-a59b-4b2f2fee56a3",
+      "category": "kr",
+      "title": "조선의형사들",
+      "authors": "정명서",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8c3f1053-4eea-43b4-8dde-53b6c33b137f",
+      "category": "kr",
+      "title": "궁극의아이",
+      "authors": "정용민",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "31cb73a8-e31e-4ce8-8874-bed3a4c4155a",
+      "category": "kr",
+      "title": "살인게임",
+      "authors": "정충진",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6fb072f5-1fea-4b8d-8cad-2d84d602fc1c",
+      "category": "kr",
+      "title": "용의자들",
+      "authors": "정해연",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "319de649-90a3-4e5e-999c-e49fa13a8cfc",
+      "category": "kr",
+      "title": "법정스님의무소유행복",
+      "authors": "정혜인",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fe0a5b04-3eaf-44e0-bbe7-f54fde47f771",
+      "category": "kr",
+      "title": "침입자들",
+      "authors": "정혁용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2505cc11-e9a7-40d8-9e9b-5f8fc3e4ef19",
+      "category": "kr",
+      "title": "파괴자들",
+      "authors": "정혁용",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fbfa7834-cbd4-416d-af57-19f5af0ebc23",
+      "category": "kr",
+      "title": "빨치산의딸1",
+      "authors": "정지아",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "242e677e-13b8-4f22-a799-512dde51f793",
+      "category": "kr",
+      "title": "빨치산의딸2",
+      "authors": "정지아",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c63c436b-7bda-45b7-9314-1e18c0dd70ea",
+      "category": "kr",
+      "title": "나의아름다운날들",
+      "authors": "정지아",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b57f78cc-b030-4143-9a09-c6d1166031c3",
+      "category": "kr",
+      "title": "큰비",
+      "authors": "정미경",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "501ba13e-fe3e-4a7e-9287-89a1ae27f26a",
+      "category": "kr",
+      "title": "안개미궁",
+      "authors": "전건우",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "22df3c3d-fb8f-4951-8369-6cd3970c08ff",
+      "category": "kr",
+      "title": "준주",
+      "authors": "조양희",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0763736b-e8de-4fb2-b553-40308436afa8",
+      "category": "kr",
+      "title": "법정스님무소유산에서만나다",
+      "authors": "정찬주",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8f7b2f98-e694-44f9-9359-99ba36dda488",
+      "category": "kr",
+      "title": "그림자마법사들",
+      "authors": "정세연",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7fc7d6e0-a51f-4516-861f-e63dc185ccee",
+      "category": "kr",
+      "title": "그여자가죽길바라다",
+      "authors": "정수현",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a4ace2f4-8e20-4e17-bbc0-9c585c3cd18a",
+      "category": "kr",
+      "title": "부치하난우물",
+      "authors": "장용민",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "276d10b7-345e-4f7d-a7e4-58951ab769bb",
+      "category": "kr",
+      "title": "신의달력",
+      "authors": "장용민",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "aaa73a27-667c-414a-99b1-d138ede5b817",
+      "category": "kr",
+      "title": "두만강",
+      "authors": "장해성",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "18704b3e-b7ec-4f06-93b8-d01ce2ac32ee",
+      "category": "kr",
+      "title": "재수사",
+      "authors": "장강명",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "79fc2a98-7c3b-48f5-b830-67e61df201fe",
+      "category": "kr",
+      "title": "노량진학원살인사건",
+      "authors": "주요한",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e507d9ff-7482-4db1-9282-74f90f84dee6",
+      "category": "kr",
+      "title": "태백산맥",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6552d518-f2b9-4cfa-a130-459679683819",
+      "category": "kr",
+      "title": "아리랑",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d5deece1-51fb-4c7b-9192-78e233318172",
+      "category": "kr",
+      "title": "황토",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "037bbc9f-2b6f-4ffb-8bd0-d2059360b165",
+      "category": "kr",
+      "title": "외면하는벽",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "23296b96-6a8e-4d58-89e3-9524158e1394",
+      "category": "kr",
+      "title": "어떤솔거의죽음",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "038642ee-910f-4bf0-8b85-afafca85453c",
+      "category": "kr",
+      "title": "한강1",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "bc6c2582-c5ea-45ea-b38d-e28ee6f3d0a5",
+      "category": "kr",
+      "title": "한강2",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "acde1ac5-453c-4115-8450-5a06a639ad62",
+      "category": "kr",
+      "title": "한강3",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c9663a37-4a94-46dd-a7d3-66591ca1ca43",
+      "category": "kr",
+      "title": "한강4",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4c7a82a0-d0de-4f10-9638-1445b1205099",
+      "category": "kr",
+      "title": "한강5",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e562591c-b013-4a36-a988-a3657ab1588b",
+      "category": "kr",
+      "title": "한강6",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8a0983e2-d8e3-4220-b0f6-660a5801a3bf",
+      "category": "kr",
+      "title": "한강7",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f9331899-f4ec-4ad7-8aa2-4f9acad1d274",
+      "category": "kr",
+      "title": "한강8",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f121f524-2129-4056-9973-55ab110e2f3d",
+      "category": "kr",
+      "title": "한강9",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "40f5d28d-88e4-4e62-8cc5-11a20244c2d6",
+      "category": "kr",
+      "title": "한강10",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ac7a5f72-b529-4eaa-b922-4c499b1735d1",
+      "category": "kr",
+      "title": "유형의땅",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ccaec511-98f2-4bf8-9f9d-6f55ac8a4bcc",
+      "category": "kr",
+      "title": "사람의탈",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a7fa52e1-6e6a-458d-9eb6-34c033400c7c",
+      "category": "kr",
+      "title": "어떤전설",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d1a618c3-88b3-4c37-adf9-a05c670b7142",
+      "category": "kr",
+      "title": "황금종이",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d49b2622-5c5d-448f-bdbf-be377b008224",
+      "category": "kr",
+      "title": "정글만리1",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ea0690bd-15f5-4e79-b0c3-d2777f09e65e",
+      "category": "kr",
+      "title": "정글만리2",
+      "authors": "조정래",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "267ae556-9e3a-45cf-bc69-6fc922a693e5",
+      "category": "kr",
+      "title": "천년을훔치다",
+      "authors": "조완선",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6b4c57b9-5eb6-4556-b612-a688651e88b8",
+      "category": "kr",
+      "title": "해신",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6c25e5e5-5344-45ef-a4f0-bb02895c6568",
+      "category": "kr",
+      "title": "길없는길",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "024f14b2-e90d-40e6-80b2-be23db1f3201",
+      "category": "kr",
+      "title": "불새",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ca215baf-1aaf-46cb-9f71-c19ed6690958",
+      "category": "kr",
+      "title": "할",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f99a0928-13ac-4906-b8e4-f6c3fe8b134e",
+      "category": "kr",
+      "title": "어머니는죽지않는다",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3321daab-a0b2-4baf-9d79-c27ef3f1713f",
+      "category": "kr",
+      "title": "인연",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "10ad53cf-0286-4cc0-827b-0a00ea6c8a5c",
+      "category": "kr",
+      "title": "가족",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9da453f3-6678-4f5a-a717-5b63cc65efac",
+      "category": "kr",
+      "title": "제4의가족",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f3231b7d-2a9f-4cfb-a70b-44ea7c447e27",
+      "category": "kr",
+      "title": "지구인",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "03b9f3ba-ce31-4400-b1c0-00824f68c2bd",
+      "category": "kr",
+      "title": "낯익은타인들의도시",
+      "authors": "최인호",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "862c7e12-db39-433d-b242-4a9df8ad23c7",
+      "category": "kr",
+      "title": "광장",
+      "authors": "최인훈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3f65660c-2f80-4c8e-a68d-039d70f5e167",
+      "category": "kr",
+      "title": "달과소년병",
+      "authors": "최인훈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6df073d0-0dc0-4129-bf1d-362e96820a57",
+      "category": "kr",
+      "title": "혼불",
+      "authors": "최명희",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "484b367e-1eee-45cc-87f2-65bf24a19658",
+      "category": "kr",
+      "title": "고래",
+      "authors": "천명관",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "449b21ee-8d24-4119-bf6e-866190ee717a",
+      "category": "kr",
+      "title": "탁류",
+      "authors": "채만식",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "547c62be-a8e8-4864-b2d8-a6d5c4ff7a87",
+      "category": "kr",
+      "title": "장길산",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "62a81f05-50e8-4654-9c98-3d06b6fca56c",
+      "category": "kr",
+      "title": "삼포가는길",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "172dd1ea-c414-4fee-9fb8-04b845e34c74",
+      "category": "kr",
+      "title": "철도원",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "125d5b3b-0711-4634-8cf5-677d9a9b7638",
+      "category": "kr",
+      "title": "삼대",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "80c4509c-1210-4d91-9183-eea5aa0ef22e",
+      "category": "kr",
+      "title": "바리데기",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "09dd6408-0f56-4517-92e3-70c3e17738d8",
+      "category": "kr",
+      "title": "몰개월의새",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2b4daf05-5034-40f9-bda7-a8ac43dea340",
+      "category": "kr",
+      "title": "낯익은세상",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6efa89a6-8573-426b-9195-f821b8e54d82",
+      "category": "kr",
+      "title": "객지",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9d754d13-6e97-48d3-b39b-d2a8db7a4de7",
+      "category": "kr",
+      "title": "수인",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d889b112-58a9-4a98-a584-c85800207c46",
+      "category": "kr",
+      "title": "해질무렵",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4776fec1-8a5f-49dc-8e15-05fe7a964816",
+      "category": "kr",
+      "title": "손님",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a21bfc89-dce3-4d92-ab68-169dcc94e818",
+      "category": "kr",
+      "title": "오래된정원",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "900b41e2-e64b-49e8-beb0-47f85b0934a6",
+      "category": "kr",
+      "title": "여울물소리",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7bb82038-951e-4a7c-9141-bcba82606458",
+      "category": "kr",
+      "title": "심청연꽃의길",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c8d665bd-d389-41cd-95d7-2307d16d4472",
+      "category": "kr",
+      "title": "무기의그늘",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7dafa713-2f76-402e-ba71-d1ee394b3443",
+      "category": "kr",
+      "title": "강남몽",
+      "authors": "황석영",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3ce486cf-fb7d-4a89-8a2d-ced10a83d187",
+      "category": "kr",
+      "title": "임꺽정",
+      "authors": "홍명희",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b90e71a8-f400-441a-897c-0b094b02c2aa",
+      "category": "kr",
+      "title": "까마귀",
+      "authors": "한수산",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1eb5f898-b69a-4f52-8a54-518022a855b1",
+      "category": "en",
+      "title": "다크플레이스",
+      "authors": "길리언플린",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "234ac327-7305-4f78-921f-e702a6f7f2f3",
+      "category": "en",
+      "title": "어두운숲",
+      "authors": "니콜크라우스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e0dd0c45-f1b0-49c1-b225-90fe6b184618",
+      "category": "en",
+      "title": "우리는언젠가죽는다",
+      "authors": "데이비드실즈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "693bbcec-a3bd-46c4-9c3f-4717b832138d",
+      "category": "en",
+      "title": "6시20분의남자",
+      "authors": "데이비드발다치",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "cbcaec6d-d793-45ea-af45-d35a8e9490cf",
+      "category": "en",
+      "title": "조각상살인사건",
+      "authors": "다니엘콜",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "941aacef-116d-4d5b-b5ad-985395bee790",
+      "category": "en",
+      "title": "엔드게임살인사건",
+      "authors": "다니엘콜",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "16896c4f-20a3-40a8-9eb4-f2aa1a1c00bf",
+      "category": "en",
+      "title": "셔기베인",
+      "authors": "더글러스스튜어트",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6859adb5-2a98-483b-8a3e-d31c0ffca262",
+      "category": "en",
+      "title": "나의사촌레이첼",
+      "authors": "대프니듀모리에",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3532dcdd-9187-4155-ae79-cd3c9032ba6a",
+      "category": "en",
+      "title": "데인가의저주",
+      "authors": "데실해밋",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e7c1fbd5-3e0d-4321-b3ba-2fc701c04877",
+      "category": "en",
+      "title": "위험한관계",
+      "authors": "더글러스케네디",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "24bc4804-ec71-411c-a9c4-f56d3d4aac2a",
+      "category": "en",
+      "title": "빅픽처",
+      "authors": "더글러스케네디",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3a08ea43-0c8a-40af-92ca-58d1e68e063b",
+      "category": "en",
+      "title": "잭리처의하드웨어",
+      "authors": "리차일드",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "de3451b0-13e5-4e4c-95db-e5d8515458d8",
+      "category": "en",
+      "title": "61시간",
+      "authors": "리차일드",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5e8900f2-4a1f-4696-93fd-c0e2ad199171",
+      "category": "en",
+      "title": "뉴욕미스터리",
+      "authors": "리차일드",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e26c4f90-5532-49e6-8374-903841c89c0b",
+      "category": "en",
+      "title": "7시45분열차에서의고백",
+      "authors": "리사엉거",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fe21d0bc-d90f-435b-96fc-4903964880bf",
+      "category": "en",
+      "title": "그린존",
+      "authors": "라지브찬드라세카란",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1250cfd6-9e14-4317-bb10-2e1f64a0397f",
+      "category": "en",
+      "title": "밤의경비원",
+      "authors": "루이스어드리크",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "75bbe2f2-f815-4709-befe-231e8fea3140",
+      "category": "en",
+      "title": "포스윙",
+      "authors": "레베카야로스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "62fad1c0-7dab-4790-a860-6bfd6ba6a002",
+      "category": "en",
+      "title": "공포의제국",
+      "authors": "마이클크라이튼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6d5da5e7-1ba4-426b-9529-119224d91b39",
+      "category": "en",
+      "title": "드래곤티스",
+      "authors": "마이클크라이튼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1ae80b14-eb80-49e5-8029-2742e3d60d2a",
+      "category": "en",
+      "title": "데볼루션",
+      "authors": "맥스브룩스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1562519f-0f2b-47ca-bd5b-72345eed1433",
+      "category": "en",
+      "title": "굿걸배드걸",
+      "authors": "마이클로보텀",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "02ff4c44-3002-42c4-9534-f79e63cf6202",
+      "category": "en",
+      "title": "파기환송",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "be7f5007-587d-4eff-b58a-d93509e2128b",
+      "category": "en",
+      "title": "콘크리트블론드",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "300ebc33-ecc8-4a5d-8146-033088975aaa",
+      "category": "en",
+      "title": "허수아비",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "baabacde-9e95-409f-9a43-ce0722a8ed36",
+      "category": "en",
+      "title": "엔젤플라이트",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d4e7e875-d988-4820-912b-aa143740a7a9",
+      "category": "en",
+      "title": "링컨차를타는변호사",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a48c21d8-e61d-4f1a-84ac-d5e5d6d911b3",
+      "category": "en",
+      "title": "시인의계곡",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b4aace10-589f-411f-b246-3860ff76e562",
+      "category": "en",
+      "title": "트렁크뮤직",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "36a1c880-26c7-46b2-96e9-5bf71cce776f",
+      "category": "en",
+      "title": "클로저",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "12dedbd2-ed5e-4bed-aca4-b00a4baac0c3",
+      "category": "en",
+      "title": "유골의도시",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b2c5cefc-d42d-422e-a0de-544bc1eab255",
+      "category": "en",
+      "title": "블랙아이스",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6782f10f-df4e-443f-aec8-0ed3b09f5b6b",
+      "category": "en",
+      "title": "라스트코요테",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b4ed30a4-9dd4-42e1-975b-a2054250e64d",
+      "category": "en",
+      "title": "블랙에코",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c9df56ee-99a9-47ef-a203-ab291b6f1486",
+      "category": "en",
+      "title": "버닝룸",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f99846a3-0135-405c-bbdd-5ae8f525e7ea",
+      "category": "en",
+      "title": "블랙박스",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "071299cb-32c7-499e-95c4-9b587cca5495",
+      "category": "en",
+      "title": "다크니스모어댄나잇",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1c3478f2-5dd9-4ce8-8cea-9b736a2c2daa",
+      "category": "en",
+      "title": "드롭",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6fd21430-45c7-491d-9129-0c6739f212e6",
+      "category": "en",
+      "title": "위기의남자",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f1d58cdb-bbd1-4521-8016-002c1d7316b6",
+      "category": "en",
+      "title": "변론의법칙",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8148040a-17d1-4a73-b613-fdae1af03d23",
+      "category": "en",
+      "title": "회생의갈림길",
+      "authors": "마이클코넬리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b9c31de4-2036-478c-a4ef-4b7a3f6eea96",
+      "category": "en",
+      "title": "내가죽기를바라는자들",
+      "authors": "마이클코리타",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2c06e8c2-8336-4ac9-825e-5a81fc873a0c",
+      "category": "en",
+      "title": "죽음을보는눈",
+      "authors": "마이클코리타",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7ce43b62-0843-47f7-b214-68b30f501b3c",
+      "category": "en",
+      "title": "허클베리핀의모험",
+      "authors": "마크트웨인",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "daab6b12-9fc7-4549-a3dd-c0c1796f5d1d",
+      "category": "en",
+      "title": "아웃사이더",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "24f5985b-e4da-4ce2-96e5-c61a977540ff",
+      "category": "en",
+      "title": "욕망을파는집",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "469c9d14-efe6-4da3-9138-f45b2c207322",
+      "category": "en",
+      "title": "빌리서머스",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a85fc301-80b9-49f7-9f6e-2d6dcfc4b586",
+      "category": "en",
+      "title": "파인더스키퍼스",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1657bf99-5372-40c2-895c-a1f7c2e43509",
+      "category": "en",
+      "title": "고도에서",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "86bd11e7-cb3c-435c-adb8-bd9b3eba1051",
+      "category": "en",
+      "title": "로드워크",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "90b025d1-b2ab-4c47-84a8-7348c47996ed",
+      "category": "en",
+      "title": "미스터메르세데스",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "896632bc-b127-4c32-a0ff-7df485aceaa4",
+      "category": "en",
+      "title": "조이랜드",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ff31abde-8aaf-4b84-86df-b1051a19ca23",
+      "category": "en",
+      "title": "인스티튜트",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "59ced2fb-42a5-4cc6-aff8-7d33de236fae",
+      "category": "en",
+      "title": "피가흐르는곳에",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b5af1b2d-e423-4df5-aa2a-bcbee7153015",
+      "category": "en",
+      "title": "리바이벌",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "450e12c4-905a-4bcf-a1c8-a7cc1d7dc207",
+      "category": "en",
+      "title": "페어리테일",
+      "authors": "스티븐킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "cb77a963-1fa7-4c67-8668-2d60fe14c987",
+      "category": "en",
+      "title": "6분전",
+      "authors": "시드니셀던",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "64e396b8-2af1-4b19-aacc-8da31554239b",
+      "category": "en",
+      "title": "깊은밤깊은곳",
+      "authors": "시드니셀던",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2cb51610-51f5-46a3-97ca-1deccc5c73f6",
+      "category": "en",
+      "title": "100년동안널기다렸어",
+      "authors": "시드니셀던",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "24add895-eaf1-4391-84b7-6f7c3e0af2e9",
+      "category": "en",
+      "title": "블랙핸드",
+      "authors": "스테판탈티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "351fc4aa-6378-4ea2-8c91-5934d6257e93",
+      "category": "en",
+      "title": "제라드준장의회상",
+      "authors": "아서코난도일",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "73119917-d70a-4b28-ba30-8e614b2cabe1",
+      "category": "en",
+      "title": "셜록홈즈미공개사건집",
+      "authors": "아서코난도일",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1e8e77bc-fa87-4f7b-8565-c6edebbd9551",
+      "category": "en",
+      "title": "넬라의비밀약방",
+      "authors": "사라패너",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f2a0d1ea-c365-4f78-b144-2a209d252c5d",
+      "category": "en",
+      "title": "열개의인디언인형",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8772f697-eaba-4faa-8f5b-65de254b811e",
+      "category": "en",
+      "title": "장미와주목",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "015f43c8-dfab-4101-9198-f6e85f6765ac",
+      "category": "en",
+      "title": "봄에나는없었다",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "28a5bf25-c595-4a19-9a51-93d337a391de",
+      "category": "en",
+      "title": "전집51",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b4be9bd8-0a4a-40a4-b4d0-e9c95eca4b6e",
+      "category": "en",
+      "title": "누명",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d8449ba6-d8ec-48ac-af50-75a0d4d2efe6",
+      "category": "en",
+      "title": "그리고아무도없었다",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "da591bd1-f4b2-464e-a110-10b530a2914e",
+      "category": "en",
+      "title": "열가지수수께끼",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "69b85c1b-4beb-4f39-bdec-139a337d6ac4",
+      "category": "en",
+      "title": "움직이는손가락",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "62ed222e-63bd-410f-b576-05ed5d894546",
+      "category": "en",
+      "title": "딸은딸이다",
+      "authors": "애거사크리스티",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "af433d67-3d08-4816-bbd1-cef85e11526e",
+      "category": "en",
+      "title": "늑대의역사",
+      "authors": "에밀리프리들런드",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0724a251-a6ff-46b2-b1dd-9e78d059ae12",
+      "category": "en",
+      "title": "살인플롯짜는노파",
+      "authors": "엘리그리피스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c36ab866-48c0-404d-acbf-a69c3187b772",
+      "category": "en",
+      "title": "일곱방울피",
+      "authors": "엘리엇아베카시스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "bc5d337a-822b-4587-b0a9-5816aeb0faee",
+      "category": "en",
+      "title": "우울과몽상",
+      "authors": "에드거앨런포",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "09b18a4c-4a4c-4687-9317-6e3348d61057",
+      "category": "en",
+      "title": "소리없는비명",
+      "authors": "엔절라마슨즈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "720f79ed-abdb-4d3c-8c69-924be71ca288",
+      "category": "en",
+      "title": "길잃은자들이떠도는곳",
+      "authors": "에이미하먼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "80619311-073f-4284-b7f3-bcf3f95d7d00",
+      "category": "en",
+      "title": "어두운기억속으로",
+      "authors": "엘리자베스헤인스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6116d559-b89f-414e-b383-49105f1967ca",
+      "category": "en",
+      "title": "일곱번의거짓말",
+      "authors": "엘리자베스케이",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b35d0e93-9439-4312-8b0e-cca3ac867922",
+      "category": "en",
+      "title": "히스토리언",
+      "authors": "엘리자베스코스토바",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e5d75193-7118-4226-966c-e06d78fdf028",
+      "category": "en",
+      "title": "흰옷을입은여인",
+      "authors": "윌리엄윌키콜린스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c1672574-9c5d-4554-bf53-56bc4f0215f0",
+      "category": "en",
+      "title": "속죄",
+      "authors": "이언매큐언",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ef79f217-ca3c-4bd8-bf12-ed6b1c63b92c",
+      "category": "en",
+      "title": "어떤날들",
+      "authors": "앤드루포터",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "80014be4-2902-44ef-9f9c-ea1740e773e3",
+      "category": "en",
+      "title": "쓰리데이즈",
+      "authors": "제임스패터슨",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3bb5bbdf-d856-45f8-8d01-fb2bf3f6c90a",
+      "category": "en",
+      "title": "여섯번째표적",
+      "authors": "제임스패터슨",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4688401d-9e42-484b-a7cd-49dfea5c6560",
+      "category": "en",
+      "title": "크루시블",
+      "authors": "제임스롤린스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9b1e1603-4a54-449b-acf0-1a6ec6f1f346",
+      "category": "en",
+      "title": "완벽한스파이",
+      "authors": "존르카레",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "70aa583b-9fda-4604-ac24-ff1b34f516bf",
+      "category": "en",
+      "title": "좀비",
+      "authors": "조이스캐럴오츠",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "20434b09-60eb-470f-a4bd-4a563ee4aae9",
+      "category": "en",
+      "title": "19분",
+      "authors": "조디피콜트",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "146e4593-18f7-4e6c-bdc6-70820508cd97",
+      "category": "en",
+      "title": "키라임파이살인사건",
+      "authors": "조앤플루크",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "328b313a-e777-4b33-9f52-262133983f22",
+      "category": "en",
+      "title": "버마의나날",
+      "authors": "조지오웰",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f3504775-7632-4119-9065-2bd0b05f619a",
+      "category": "en",
+      "title": "잿빛음모",
+      "authors": "존그리샴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9ba60929-425d-45c3-8243-f341ec7056f8",
+      "category": "en",
+      "title": "사라지는대지",
+      "authors": "줄리아필립스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7ff18940-70d5-4de4-8f3a-bd659b164d2e",
+      "category": "en",
+      "title": "블러디머더",
+      "authors": "줄리언시먼스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "abff8326-e8fa-498d-bc3d-b4531f7f94a9",
+      "category": "en",
+      "title": "WrongPlace",
+      "authors": "질리언매컬리스터",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e9e83e3a-322d-43e0-9b53-8c137f973747",
+      "category": "en",
+      "title": "악의사냥",
+      "authors": "크리스카터",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f32973a2-6fd4-478e-9789-53e8d0943487",
+      "category": "en",
+      "title": "악의심장",
+      "authors": "크리스카터",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b7786755-a99e-4ac7-bfe0-18466dfcb9cc",
+      "category": "en",
+      "title": "제1구역",
+      "authors": "콜슨화이트헤드",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4b531233-55a7-43bf-a6cd-152cbc7a97d4",
+      "category": "en",
+      "title": "베러티",
+      "authors": "콜린후버",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d47806a1-4be6-4f5e-9bb8-f84ec3ecffeb",
+      "category": "en",
+      "title": "베이커가의살인",
+      "authors": "코난도일",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2acea795-d2a3-40c4-83ac-995661c87a2e",
+      "category": "en",
+      "title": "내영혼이따뜻했던날들",
+      "authors": "포리스트카터",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9bde2607-7bdc-4a26-9463-b1cd11bc6a32",
+      "category": "en",
+      "title": "제로니모",
+      "authors": "포리스트카터",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5bc88f8d-33c1-4c96-8b7e-de4dc9d71186",
+      "category": "en",
+      "title": "램브란트의유령",
+      "authors": "폴크리스토퍼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c647d230-6e7f-41a0-8394-fa6d545344a5",
+      "category": "en",
+      "title": "아즈텍의비밀",
+      "authors": "폴크리스토퍼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1493102e-0a03-481c-974d-1dab95ad279f",
+      "category": "en",
+      "title": "일곱남편의에블린휴고",
+      "authors": "테일러젠킨스리드",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "18f7c850-7c91-42aa-b4e9-031a8c77f342",
+      "category": "en",
+      "title": "Exhalation",
+      "authors": "테드창",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "cb73adbe-1458-4304-a439-a537b8507d39",
+      "category": "en",
+      "title": "비밀의화원",
+      "authors": "프랜시스호지슨버넷",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5b5d712f-42a7-432b-a23a-cd18680566c7",
+      "category": "en",
+      "title": "앵무새죽이기",
+      "authors": "하퍼리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7512bdc2-e940-42cb-a490-4e89f178fde9",
+      "category": "en",
+      "title": "스파이스살인사건",
+      "authors": "피터킹",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4e5913e9-8397-4467-8d48-2f9f2ea62806",
+      "category": "en",
+      "title": "가짜경감듀",
+      "authors": "피터러브시",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ca17919d-cc06-4587-8b1d-57cc04ca6c18",
+      "category": "en",
+      "title": "8건의완벽한살인",
+      "authors": "피터스완슨",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a9cdc1c4-ad34-4afe-95cc-1c7998abf717",
+      "category": "en",
+      "title": "미국을노린음모",
+      "authors": "필립로스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "dbac7e34-7f97-4dc8-a96d-8353e8030659",
+      "category": "en",
+      "title": "WolfHall",
+      "authors": "힐러리맨틀",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "db8604de-a1c3-4b3e-82d1-19ca84940f48",
+      "category": "en",
+      "title": "미싱유",
+      "authors": "할런코벤",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7d6ff313-24cd-471f-be48-47e2114e2d9f",
+      "category": "en",
+      "title": "비긴어게인",
+      "authors": "헬리액튼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3864ddcf-953f-4a40-a65c-989332bdce1c",
+      "category": "en",
+      "title": "불타는소녀들",
+      "authors": "CJTudor",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "851a0c10-76d0-4cc8-af94-136114683bb7",
+      "category": "en",
+      "title": "50가지그림자심연",
+      "authors": "EL제임스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "afe3fb8e-4499-43f8-b4a4-d3f6f9b1be30",
+      "category": "en",
+      "title": "그레이",
+      "authors": "EL제임스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2135bfa4-e825-42d1-bf7d-dfd81cd96fc1",
+      "category": "en",
+      "title": "퍼핏쇼",
+      "authors": "MK크레이븐",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "caffc715-6402-4562-b957-49ca7dacdcdb",
+      "category": "en",
+      "title": "다섯번째계절",
+      "authors": "NK제미신",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "46023ccb-3e19-473e-96cb-dce7dd958d8c",
+      "category": "en",
+      "title": "검은황무지",
+      "authors": "SA코스비",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "af1ef157-6f0b-4a52-b4d1-7c49ec4183ad",
+      "category": "en",
+      "title": "왕좌의게임1",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ef0615ef-b833-4ef8-9e56-7ab5e6c35850",
+      "category": "en",
+      "title": "왕좌의게임2",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4bc146dc-f60b-4606-a367-b09a5c25ed64",
+      "category": "en",
+      "title": "왕들의전쟁1",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5cad08d0-7406-4e34-95fe-800553d4cfe8",
+      "category": "en",
+      "title": "왕들의전쟁2",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3ce3d1f0-5b31-4077-9b9e-5bc665abbf42",
+      "category": "en",
+      "title": "성검의폭풍1",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8671ad6e-0e25-45ca-bc6a-0c12ecac9f27",
+      "category": "en",
+      "title": "성검의폭풍2",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4e494734-ad82-4731-875b-d12662d359ae",
+      "category": "en",
+      "title": "까마귀의향연1",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "afc568dd-a66c-485e-8978-6e4ab1e79f6b",
+      "category": "en",
+      "title": "까마귀의향연2",
+      "authors": "조지RR마틴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e76d205a-2fc2-4232-8adb-06f6115e5223",
+      "category": "eu",
+      "title": "구토",
+      "authors": "장폴사르트르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1a28ddd5-e111-4c89-888a-73406f481527",
+      "category": "eu",
+      "title": "그림포",
+      "authors": "라파엘아발로스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fab5f497-bc50-41b9-ada5-d3e0f0cb07be",
+      "category": "eu",
+      "title": "센강의이름모를여인",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "479a7fbd-2c27-4126-ac51-74de02e6c0e5",
+      "category": "eu",
+      "title": "아가씨와밤",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7444846c-bf0d-4daa-92bc-84b15cbfab0f",
+      "category": "eu",
+      "title": "센트럴파크",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0d3a52f2-14fa-4b96-a97a-e70acb07d5c2",
+      "category": "eu",
+      "title": "브루클린의소녀",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "95c353d1-f2ec-4789-9414-f0d7a3748fe8",
+      "category": "eu",
+      "title": "7년후",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ecdceecc-1b55-43c4-9b52-f0f22cb3c926",
+      "category": "eu",
+      "title": "천사의부름",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d8384573-d869-4365-a5cc-9f35616eac8e",
+      "category": "eu",
+      "title": "구해줘",
+      "authors": "기욤뮈소",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c0078972-fea9-42c0-bd01-ab686597af1c",
+      "category": "eu",
+      "title": "폭풍의시간",
+      "authors": "넬레노이하우스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "aa66cdd6-76a8-4f04-a0ff-de9989156cb4",
+      "category": "eu",
+      "title": "여름을삼킨소녀",
+      "authors": "넬레노이하우스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "dc77e3dd-ef9c-4a94-b43a-378b0b42a9f7",
+      "category": "eu",
+      "title": "깊은상처",
+      "authors": "넬레노이하우스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6dd28535-4d3c-44a8-8b6a-ccc315f6d40e",
+      "category": "eu",
+      "title": "보라선열차와사라진아이들",
+      "authors": "디파아나파라",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "304748df-4f5f-48b2-bb76-3c97cbcc2c6a",
+      "category": "eu",
+      "title": "속삭이는자",
+      "authors": "도나토카리시",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "35a3ec45-8c36-41ca-af28-46004670aa11",
+      "category": "eu",
+      "title": "안개속소녀",
+      "authors": "도나토카리시",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f3d54abc-f7bd-4ff7-b903-068e5a978a6d",
+      "category": "eu",
+      "title": "산책자",
+      "authors": "로베르트발저",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "de5c6313-6431-41ed-8010-83b31d05198d",
+      "category": "eu",
+      "title": "백야",
+      "authors": "도스토옙스키",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d1b68a4f-03d7-419a-8550-040758510f06",
+      "category": "eu",
+      "title": "엿보는마을",
+      "authors": "리사주얼",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9bf3251a-4202-42b8-b742-1cf4cbcb7129",
+      "category": "eu",
+      "title": "죽어가는형사",
+      "authors": "레이프페르손",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3eb8b651-649a-4a23-94f1-6920b3bc0288",
+      "category": "eu",
+      "title": "흰개",
+      "authors": "로맹가리",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4f2bc698-9045-4f6b-99fc-d8c277c638e5",
+      "category": "eu",
+      "title": "사막",
+      "authors": "르클레지오",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "265a02bb-a19c-41c1-8f3e-a990d6968f0c",
+      "category": "eu",
+      "title": "기억1",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fd510cec-790e-49d1-85da-59246d002e41",
+      "category": "eu",
+      "title": "기억2",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8e01ce48-3d1c-43f0-8801-962b11ff1136",
+      "category": "eu",
+      "title": "카산드라의거울",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3d991e7b-fe73-41e9-832b-0e8bf69de460",
+      "category": "eu",
+      "title": "꿀벌의예언",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "738cb741-9e45-45b1-b9a5-d9eb90660601",
+      "category": "eu",
+      "title": "죽음1",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c4f49e03-cda5-432e-bab6-76124186cf19",
+      "category": "eu",
+      "title": "천사들의제국",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1af7e11c-14b8-4eeb-836a-905097c3e5b9",
+      "category": "eu",
+      "title": "퀸의대각선1",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3bd3f7ee-7c30-41c2-95d0-90506e638095",
+      "category": "eu",
+      "title": "퀸의대각선2",
+      "authors": "베르나르베르베르",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2dfeda6f-5659-434d-b77a-1936eff3f770",
+      "category": "eu",
+      "title": "오바바마을이야기",
+      "authors": "베르나르도아차가",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "46e89c44-6e7b-422b-9ea6-29d51e9185c4",
+      "category": "eu",
+      "title": "속임수",
+      "authors": "샤를로테링크",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "48f3246b-13e9-43cb-8dfc-35f2aae9fc7b",
+      "category": "eu",
+      "title": "4월의음모",
+      "authors": "수사나포르테스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b98d5f57-716b-4ea1-8c45-9cd27bb48d36",
+      "category": "eu",
+      "title": "루미너리스",
+      "authors": "엘리너캐턴",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "5e2eec75-4ebc-4cb9-8892-3f52a752fc46",
+      "category": "eu",
+      "title": "어느하녀의일기",
+      "authors": "옥타브미르보",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "605f0bec-9154-4f41-a9ff-790771780531",
+      "category": "eu",
+      "title": "밤베르크의늑대인간",
+      "authors": "올리버푀치",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6d21f15b-ae42-4d43-819d-159f33a63e6d",
+      "category": "eu",
+      "title": "박쥐",
+      "authors": "요네스뵈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ce2302b2-9032-4ce1-86df-a93146c439d3",
+      "category": "eu",
+      "title": "헤드헌터",
+      "authors": "요네스뵈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c5dd329a-6232-4c7e-9e27-40f36e5035ac",
+      "category": "eu",
+      "title": "페스트",
+      "authors": "알베르트카뮈",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7246d8ac-105c-4f26-ac3e-64dff3977d25",
+      "category": "eu",
+      "title": "죽음의론도",
+      "authors": "안드레아스그루버",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c5b97a60-cc6e-4d8f-8808-cd14e9bc3826",
+      "category": "eu",
+      "title": "늑대의제국",
+      "authors": "장크리스토프그랑제",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9fa12afd-7c37-40ce-becd-9714ccecae4b",
+      "category": "eu",
+      "title": "검은선",
+      "authors": "장크리스토프그랑제",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2c94144e-4e6d-4d75-9223-229881d1f56c",
+      "category": "eu",
+      "title": "악의숲",
+      "authors": "장크리스토프그랑제",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6468da2b-160a-487c-aadf-ff7a5497a6fd",
+      "category": "eu",
+      "title": "녹색광선",
+      "authors": "쥘베른",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "00044815-9440-4da4-98ce-4587ca60ad78",
+      "category": "eu",
+      "title": "신비의섬",
+      "authors": "쥘베른",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "cc80fe32-1b8d-4a62-8769-5a52e17c44f6",
+      "category": "eu",
+      "title": "천사의게임",
+      "authors": "카를로스루이스사폰",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "01109a3e-8f8f-40bd-9168-0a732bf0042c",
+      "category": "eu",
+      "title": "4의비밀",
+      "authors": "프레드바르가스",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d6d41a07-db0b-4abe-b46f-32807976768d",
+      "category": "eu",
+      "title": "불안한사람들",
+      "authors": "프레드릭베크만",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "81b1b212-4110-4c95-8711-e04d0d6de097",
+      "category": "eu",
+      "title": "어부들",
+      "authors": "치고지에오비오마",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6df4abbc-9ea1-475e-a4d3-1bfd783d4474",
+      "category": "eu",
+      "title": "눈먼자들의도시",
+      "authors": "호세사라마구",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a17067b4-21f0-4a09-9208-dcd7a91e1841",
+      "category": "jp",
+      "title": "그무렵누군가",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "84e8d98b-0e41-4d50-b696-5727ba3c353c",
+      "category": "jp",
+      "title": "그리고아무도없었다",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b9380ad0-8205-499b-baf5-8db798aa1524",
+      "category": "jp",
+      "title": "가면산장살인사건",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "50f69d52-f703-4b1a-9326-adacfc57dd5a",
+      "category": "jp",
+      "title": "공허한십자가",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0568f585-1f17-4b3b-93bc-845de4bf8a8a",
+      "category": "jp",
+      "title": "기린의날개",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "3a53be56-3714-4915-a14f-74cc4168411b",
+      "category": "jp",
+      "title": "기도의막이내릴때",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "87e9397d-2cb8-4eb3-b0e3-32fdb871798a",
+      "category": "jp",
+      "title": "그대의눈동자에건배",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7bc87c99-c27a-4cd0-83a9-1fc8b11e59a0",
+      "category": "jp",
+      "title": "눈에갇힌외딴산장",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "252f92c5-6be2-43b4-b1eb-5c44a3a2b8a5",
+      "category": "jp",
+      "title": "눈보라체이스",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4853654d-71cf-4c09-a1c4-44b5d7a2a8bc",
+      "category": "jp",
+      "title": "명탐정의저주",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a783b38d-2cf7-4188-b382-a21c32812845",
+      "category": "jp",
+      "title": "매스커레이드호텔",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "2fcd6382-0e21-4407-a4c5-b34c52ff3400",
+      "category": "jp",
+      "title": "매스커레이드나이트",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c1af5f9e-94c0-4214-bf5f-9ea8ea7c0677",
+      "category": "jp",
+      "title": "매스커레이드게임",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ec58a18c-171e-43ea-9d4b-cc39c7910209",
+      "category": "jp",
+      "title": "11문자살인사건",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "164379f1-ff99-42c6-9e5c-6c7772f687f1",
+      "category": "jp",
+      "title": "몽환화",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e28f3fc7-a063-406d-98d9-e24ad1d8e18b",
+      "category": "jp",
+      "title": "백야행",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4235aa75-dfcc-4850-9904-a3b5272d231a",
+      "category": "jp",
+      "title": "백은의잭",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c49e9814-7fca-48a3-8f63-7c2e08f1fde5",
+      "category": "jp",
+      "title": "라플라스의마녀",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "a4af2af0-a06d-4443-a61e-b35ae79707c5",
+      "category": "jp",
+      "title": "악의",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e96e1a1c-c6bd-4405-89c9-3ef1b3c60b53",
+      "category": "jp",
+      "title": "백조와박쥐",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fd8dfe92-e9fc-4340-9318-9ac650397eee",
+      "category": "jp",
+      "title": "블랙쇼맨과이름없는마을의살인",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8b6d35d5-977f-4185-ab88-5e799059f50c",
+      "category": "jp",
+      "title": "위험한비너스",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ebce3dbc-affa-471b-b8e3-b5535ca9bd21",
+      "category": "jp",
+      "title": "아름다운흉기",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "feee8cbf-2c05-4993-a709-33831bad2e8f",
+      "category": "jp",
+      "title": "아들도미노",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "594a0de7-0695-4918-8b9b-7be42aa4d3e4",
+      "category": "jp",
+      "title": "추리소설가의살인",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "0f69d8c5-7710-428d-b8e7-6f42e6e9f48c",
+      "category": "jp",
+      "title": "희망의끈",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8f148a3d-c591-4913-8277-9e7028d1af53",
+      "category": "jp",
+      "title": "환상의여인",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "24b094bb-abce-40e5-8b1a-6188a67469df",
+      "category": "jp",
+      "title": "호숫가살인사건",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "e391829d-0be7-4371-bf4e-2f63da0eaf7c",
+      "category": "jp",
+      "title": "허상의어릿광대",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "f9c7d987-1504-4f3b-8283-737dbfd3b51f",
+      "category": "jp",
+      "title": "한여름밤의방정식",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "51c45fe9-8dca-4558-a5f6-fd03cf6bef32",
+      "category": "jp",
+      "title": "패럴렐월드러브스토리",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "6b09af38-b8be-46b8-8a7e-c2883911924d",
+      "category": "jp",
+      "title": "외사랑",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "4e51f814-8dd5-410b-8a8a-fecfb8cc81f6",
+      "category": "jp",
+      "title": "화이트러시",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "90375c29-7309-4e77-a8a9-a382f2f0b204",
+      "category": "jp",
+      "title": "침묵의퍼레이드",
+      "authors": "히가시노게이고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "38495292-c3fe-45dc-b153-cfc9774fe4f5",
+      "category": "jp",
+      "title": "유리망치",
+      "authors": "기시유스케",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "83c260cc-aef1-4ea0-8725-4da1822de75c",
+      "category": "jp",
+      "title": "수상한목욕탕",
+      "authors": "마쓰오유미",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "392f65ac-dcaa-412f-9e0e-4f7e8bef3f5b",
+      "category": "jp",
+      "title": "용서받지못한밤",
+      "authors": "미치오슈스케",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "1bbdbac2-982d-4a34-a9fd-29907ad25cad",
+      "category": "jp",
+      "title": "예언의섬",
+      "authors": "사와무라이치",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b0624bd5-12c2-4a33-b1ac-348d5f5a557a",
+      "category": "jp",
+      "title": "진범인",
+      "authors": "쇼다간",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d04939ac-74a0-4f3d-8351-a4572d0b94f9",
+      "category": "jp",
+      "title": "소년A살인사건",
+      "authors": "이누즈카리히토",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "66bfbb8a-7c98-4174-b10a-899c31836865",
+      "category": "jp",
+      "title": "돌이킬수없는약속",
+      "authors": "야쿠마루가쿠",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "8db1b1d7-bdcf-4d1e-a5c2-71ca1d6dda66",
+      "category": "jp",
+      "title": "어느도망자의고백",
+      "authors": "야쿠마루가쿠",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "d6f7ea34-7abd-4307-b3f3-449248dd2c20",
+      "category": "jp",
+      "title": "흑묘관의살인",
+      "authors": "아야츠지유키토",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "38599857-404e-45ab-93c2-315f5eef24a4",
+      "category": "jp",
+      "title": "샤일록의아이들",
+      "authors": "이케이도준",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "c8c2525a-fee4-45c4-b9f6-a9405f842561",
+      "category": "jp",
+      "title": "우리집에놀러오세요",
+      "authors": "우타노쇼고",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9d3f08f8-cbef-459c-869c-2368e0de9dc8",
+      "category": "jp",
+      "title": "진실의10미터앞",
+      "authors": "오네자와호노부",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "bb4c693f-0de6-49da-9d44-9e0fc59867bb",
+      "category": "jp",
+      "title": "잊혀진소년",
+      "authors": "오타아이",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b0931914-a19c-4ab7-a819-8b9d7176c513",
+      "category": "jp",
+      "title": "범죄자",
+      "authors": "오타아이",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "640df553-6e47-4d4d-8a91-a23a020b78df",
+      "category": "jp",
+      "title": "한시치체포록",
+      "authors": "오카모토기도",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "ecd25678-e15c-4f78-9e61-e3dbd227af26",
+      "category": "jp",
+      "title": "양들의테러리스트",
+      "authors": "오쿠다히데오",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "338b49fd-340f-45bb-94e5-07c44f005513",
+      "category": "jp",
+      "title": "유리탑의살인",
+      "authors": "치넨미키토",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "7de0b1c4-52ce-4ecc-ac21-42d7ebb34857",
+      "category": "jp",
+      "title": "가족사냥",
+      "authors": "텐도아라타",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "56f23cce-6bf8-4c76-9aea-b640e8ae7f02",
+      "category": "jp",
+      "title": "시모츠마이야기",
+      "authors": "타케모토노바라",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "9810f3b4-5018-42d1-ace0-e5b9dfb7fc5e",
+      "category": "jp",
+      "title": "무죄의여름",
+      "authors": "후카미도리노와키",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "b2b26b77-14f6-4009-9b8a-6ebcceb612a8",
+      "category": "jp",
+      "title": "무죄의죄",
+      "authors": "하야미가즈마사",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "bd02dde8-be02-4ea3-8919-9833db7c047e",
+      "category": "jp",
+      "title": "천사들의탐정",
+      "authors": "하라료",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    },
+    {
+      "guid": "fb3f33aa-a329-40d0-9108-4b83cdcbcc23",
+      "category": "jp",
+      "title": "류",
+      "authors": "히가시야마아키라",
+      "finishedAt": "",
+      "note": "",
+      "source": "import"
+    }
+  ]
+}
