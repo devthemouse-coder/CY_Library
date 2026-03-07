@@ -57,6 +57,18 @@
             <div id="quick-buttons" class="quick-buttons" role="group" aria-label="빠른 찾기 버튼"></div>
           </details>
 
+          <div class="sort-bar" role="toolbar" aria-label="정렬">
+            <button type="button" id="sb-authors" class="sort-bar-btn sb-active">
+              저자 <span id="sb-authors-ind" class="sb-ind">오름</span>
+            </button>
+            <button type="button" id="sb-title" class="sort-bar-btn">
+              제목 <span id="sb-title-ind" class="sb-ind sb-off">꺼짐</span>
+            </button>
+            <button type="button" id="sb-category" class="sort-bar-btn">
+              분류 <span id="sb-category-ind" class="sb-ind sb-off">꺼짐</span>
+            </button>
+          </div>
+
           <div class="list-head" role="row" aria-label="목록 헤더">
             <div class="cell">
               <button type="button" id="category-filter-btn" class="head-btn" aria-expanded="false">

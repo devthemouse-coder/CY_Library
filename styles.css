@@ -157,6 +157,49 @@ body.modal-open {
   color: #fff;
 }
 
+/* 정렬 바 */
+.sort-bar {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.sort-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border-radius: 20px;
+  border: 1px solid #d7d9df;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.sort-bar-btn:active {
+  opacity: 0.75;
+}
+
+.sort-bar-btn.sb-active {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.sb-ind {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.sb-off {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
 .tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;

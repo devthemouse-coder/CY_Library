@@ -90,6 +90,13 @@ const els = {
   reportContent: /** @type {HTMLDivElement} */ (document.getElementById('report-content')),
   reportEmpty: /** @type {HTMLParagraphElement} */ (document.getElementById('report-empty')),
 
+  sbAuthors: /** @type {HTMLButtonElement} */ (document.getElementById('sb-authors')),
+  sbAuthorsInd: /** @type {HTMLSpanElement} */ (document.getElementById('sb-authors-ind')),
+  sbTitle: /** @type {HTMLButtonElement} */ (document.getElementById('sb-title')),
+  sbTitleInd: /** @type {HTMLSpanElement} */ (document.getElementById('sb-title-ind')),
+  sbCategory: /** @type {HTMLButtonElement} */ (document.getElementById('sb-category')),
+  sbCategoryInd: /** @type {HTMLSpanElement} */ (document.getElementById('sb-category-ind')),
+
   backupBtn: /** @type {HTMLButtonElement} */ (document.getElementById('backup-btn')),
   backupStatus: /** @type {HTMLDivElement} */ (document.getElementById('backup-status')),
   backupModal: /** @type {HTMLDivElement} */ (document.getElementById('backup-modal')),
@@ -135,7 +142,10 @@ let isCategoryAll = true;
 let selectedCategories = new Set();
 
 /** @type {{key:'authors'|'title'|'finishedAt'|null, dir:'asc'|'desc'|null}} */
-let sortState = { key: null, dir: null };
+let sortState = { key: 'authors', dir: 'asc' };
+
+/** @type {string|null} 정렬바 분류 필터: null|'kr'|'en'|'eu'|'jp'|'other' */
+let sbCatState = null;
 
 /** @type {any | null} */
 let activeDetailBook = null;
@@ -283,8 +293,68 @@ function toggleSort(key) {
     sortState = { key: null, dir: null };
   }
   updateSortIndicators();
+  updateSortBar();
   render();
 }
+
+// ─── 정렬 바 ────────────────────────────────────────────────
+const SB_CAT_CYCLE = ['kr', 'en', 'eu', 'jp', 'other'];
+const SB_CAT_LABEL = { kr: '국내', en: '영미', eu: '유럽', jp: '일본', other: '그외' };
+
+function updateSortBar() {
+  // 저자
+  const authOn = sortState.key === 'authors';
+  els.sbAuthors.classList.toggle('sb-active', authOn);
+  els.sbAuthorsInd.textContent = authOn ? (sortState.dir === 'asc' ? '오름' : '내림') : '꺼짐';
+  els.sbAuthorsInd.classList.toggle('sb-off', !authOn);
+
+  // 제목
+  const titleOn = sortState.key === 'title';
+  els.sbTitle.classList.toggle('sb-active', titleOn);
+  els.sbTitleInd.textContent = titleOn ? (sortState.dir === 'asc' ? '오름' : '내림') : '꺼짐';
+  els.sbTitleInd.classList.toggle('sb-off', !titleOn);
+
+  // 분류
+  const catOn = sbCatState !== null;
+  els.sbCategory.classList.toggle('sb-active', catOn);
+  els.sbCategoryInd.textContent = catOn ? SB_CAT_LABEL[sbCatState] : '꺼짐';
+  els.sbCategoryInd.classList.toggle('sb-off', !catOn);
+}
+
+function toggleSortBar(key) {
+  if (sortState.key !== key) {
+    sortState = { key, dir: 'asc' };
+  } else if (sortState.dir === 'asc') {
+    sortState = { key, dir: 'desc' };
+  } else {
+    sortState = { key: null, dir: null };
+  }
+  updateSortIndicators();
+  updateSortBar();
+  render();
+}
+
+function toggleSortBarCat() {
+  if (sbCatState === null) {
+    sbCatState = SB_CAT_CYCLE[0];
+  } else {
+    const idx = SB_CAT_CYCLE.indexOf(sbCatState);
+    sbCatState = idx >= SB_CAT_CYCLE.length - 1 ? null : SB_CAT_CYCLE[idx + 1];
+  }
+
+  if (sbCatState === null) {
+    isCategoryAll = true;
+    selectedCategories = new Set();
+  } else {
+    isCategoryAll = false;
+    selectedCategories = new Set([sbCatState]);
+  }
+
+  syncCategoryUi();
+  updateSortBar();
+  render();
+}
+// ──────────────────────────────────────────────────────────────
 
 function setCategoryPanelOpen(open) {
   els.categoryFilterPanel.hidden = !open;
@@ -306,7 +376,9 @@ function syncCategoryUi() {
 function setCategoryAllMode() {
   isCategoryAll = true;
   selectedCategories = new Set();
+  sbCatState = null;
   syncCategoryUi();
+  updateSortBar();
   render();
 }
 
@@ -325,7 +397,10 @@ function applyCategorySelectionFromDom() {
 
   isCategoryAll = false;
   selectedCategories = next;
+  // 정렬 바 분류 동기화: 1개만 선택 시 sort bar에 반영
+  sbCatState = next.size === 1 ? [...next][0] : null;
   syncCategoryUi();
+  updateSortBar();
   render();
 }
 
@@ -1451,6 +1526,10 @@ function wireEvents() {
   els.sortTitle.addEventListener('click', () => toggleSort('title'));
   els.sortFinishedAt.addEventListener('click', () => toggleSort('finishedAt'));
 
+  els.sbAuthors.addEventListener('click', () => toggleSortBar('authors'));
+  els.sbTitle.addEventListener('click', () => toggleSortBar('title'));
+  els.sbCategory.addEventListener('click', () => toggleSortBarCat());
+
   els.categoryFilterBtn.addEventListener('click', () => {
     setCategoryPanelOpen(els.categoryFilterPanel.hidden);
   });
@@ -1763,6 +1842,7 @@ async function init() {
   wireEvents();
   buildQuickButtons();
   updateSortIndicators();
+  updateSortBar();
   setCategoryAllMode();
   setActiveView('list');
   initBackupPanel();
