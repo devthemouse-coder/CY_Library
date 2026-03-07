@@ -1321,9 +1321,9 @@ async function onSubmit(event) {
   await refresh();
   setActiveView('list');
 
-  // 저장 성공 후에만 Gist 백업 (설정된 경우 + 저장된 송이 있을 때만)
+  // 저장 성공 후에만 Gist 자동 백업 (안전 가드 통과 시에만)
   const gistCfg = loadGistSettings();
-  if (gistCfg && gistCfg.token && cachedBooks.length > 0) {
+  if (gistCfg && gistCfg.token && isSafeToBackup(cachedBooks)) {
     clearTimeout(_gistBackupTimer);
     _gistBackupTimer = setTimeout(async () => {
       try {
@@ -1334,6 +1334,29 @@ async function onSubmit(event) {
       }
     }, 1000);
   }
+}
+
+/**
+ * 자동 백업 안전 가드.
+ * - 빈 배열: 절대 백업 안함 (연결 직후 빈 상태로 덮어쓰기 방지)
+ * - 마지막 백업 대비 30% 이상 감소 & 마지막 백업이 5권 이상: 자동 차단
+ * @param {any[]} books
+ * @returns {boolean}
+ */
+function isSafeToBackup(books) {
+  if (books.length === 0) {
+    console.warn('[Gist] 자동 백업 차단: 로컬 데이터가 비어있음');
+    return false;
+  }
+  const s = loadGistSettings();
+  if (s && typeof s.lastCount === 'number' && s.lastCount >= 5) {
+    const ratio = books.length / s.lastCount;
+    if (ratio < 0.7) {
+      console.warn(`[Gist] 자동 백업 차단: 현재 ${books.length}권 / 마지막 백업 ${s.lastCount}권 (30% 이상 감소)`);
+      return false;
+    }
+  }
+  return true;
 }
 
 async function onListClick(event) {
@@ -1776,11 +1799,9 @@ function wireEvents() {
       els.backupTokenInput.value = '';
       els.backupTokenStatus.hidden = true;
       refreshBackupPanel();
-      // 즉시 첫 백업 실행
-      const result = await backupToGist(cachedBooks);
-      updateBackupStatusBadge(result.savedAt);
-      refreshBackupPanel();
-      alert(`${login} 계정으로 연결됐어요. 첫 백업이 완료됐습니다.`);
+      // 연결 시 즉시 백업하지 않음 — 빈 데이터로 덮어쓰기 방지
+      // 책을 추가/수정하면 자동 백업이 실행됩니다.
+      alert(`${login} 계정으로 연결됐어요.\n\nGist에 기존 백업이 있다면 '복원' 버튼으로 불러오세요.\n책을 추가·수정하면 자동으로 백업됩니다.`);
     } catch (e) {
       els.backupTokenStatus.textContent = `오류: ${e.message}`;
       els.backupTokenStatus.className = 'backup-token-status error';

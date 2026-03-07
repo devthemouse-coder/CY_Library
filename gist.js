@@ -161,6 +161,6 @@ export async function backupToGist(books) {
   }
 
   const savedAt = new Date().toISOString();
-  saveGistSettings({ ...s, gistId, lastAt: savedAt });
+  saveGistSettings({ ...s, gistId, lastAt: savedAt, lastCount: books.length });
   return { gistId, savedAt };
 }
