@@ -113,6 +113,12 @@ let cachedBooks = [];
 /** @type {Array<{source:string,sourceId:string,title:string,authors:string,publishedDate:string,isbn:string,thumbnail:string}>} */
 let cachedSearchResults = [];
 
+// ── History API: 모바일 뒤로가기 제어 ──
+// 포퍼스테이트가 우리 코드가 직접 되돌린 것인지 여부
+let _suppressPopstate = false;
+// 우리가 history.back()을 호출했을 때 popstate를 무시하기 위한 플래그
+let _historyOwnBack = false;
+
 /** @type {MediaStream | null} */
 let scannerStream = null;
 let scannerRunning = false;
@@ -536,6 +542,7 @@ async function copyTextToClipboard(text) {
 }
 
 function openReportModal() {
+  history.pushState({ _bcy: 'modal', modal: 'report' }, '');
   renderReport();
   els.reportModal.hidden = false;
   els.reportModal.setAttribute('aria-hidden', 'false');
@@ -547,6 +554,7 @@ function closeReportModal() {
   els.reportModal.hidden = true;
   els.reportModal.setAttribute('aria-hidden', 'true');
   unlockScroll();
+  if (!_suppressPopstate) { _historyOwnBack = true; history.back(); }
 }
 
 // ────────── 스크롤 잠금 (모달 열림 시 body 스크롤 제어) ──────────
@@ -603,6 +611,7 @@ function refreshBackupPanel() {
 }
 
 function openBackupModal() {
+  history.pushState({ _bcy: 'modal', modal: 'backup' }, '');
   refreshBackupPanel();
   els.backupModal.hidden = false;
   els.backupModal.setAttribute('aria-hidden', 'false');
@@ -614,6 +623,7 @@ function closeBackupModal() {
   els.backupModal.hidden = true;
   els.backupModal.setAttribute('aria-hidden', 'true');
   unlockScroll();
+  if (!_suppressPopstate) { _historyOwnBack = true; history.back(); }
 }
 
 function initBackupPanel() {
@@ -686,8 +696,18 @@ function syncFinishedAtFromDisplay({ report = false } = {}) {
   return true;
 }
 
-function setActiveView(view) {
+function setActiveView(view, { noHistory = false } = {}) {
+  const wasForm = activeView === 'form';
   activeView = view;
+
+  if (!noHistory) {
+    if (view === 'form' && !wasForm) {
+      history.pushState({ _bcy: 'view', view: 'form' }, '');
+    } else if (view === 'list' && wasForm) {
+      _historyOwnBack = true;
+      history.back();
+    }
+  }
 
   const isList = view === 'list';
   els.viewList.hidden = !isList;
@@ -782,6 +802,7 @@ function fillFormFromSearch(result) {
 }
 
 function openDetailModal() {
+  history.pushState({ _bcy: 'modal', modal: 'detail' }, '');
   els.detailModal.hidden = false;
   els.detailModal.setAttribute('aria-hidden', 'false');
   els.detailClose.focus();
@@ -796,6 +817,7 @@ async function closeDetailModal() {
   els.detailAi.hidden = true;
   els.detailExtra.hidden = true;
   unlockScroll();
+  if (!_suppressPopstate) { _historyOwnBack = true; history.back(); }
 }
 
 function renderDetailBasic(book) {
@@ -866,6 +888,7 @@ async function openDetailForId(id) {
 
 function openSearchModal() {
   if (activeView !== 'form') setActiveView('form');
+  history.pushState({ _bcy: 'modal', modal: 'search' }, '');
   els.searchModal.hidden = false;
   els.searchModal.setAttribute('aria-hidden', 'false');
   els.searchQuery.focus();
@@ -877,6 +900,7 @@ async function closeSearchModal() {
   els.searchModal.hidden = true;
   els.searchModal.setAttribute('aria-hidden', 'true');
   unlockScroll();
+  if (!_suppressPopstate) { _historyOwnBack = true; history.back(); }
 }
 
 function matchesQuery(book, query) {
@@ -1297,8 +1321,16 @@ async function onDetailEdit() {
   const book = activeDetailBook;
   if (!book) return;
   fillForm(book);
-  await closeDetailModal();
-  setActiveView('form');
+  // closeDetailModal의 history.back()을 막고 직접 replaceState로 교체
+  // [base, {modal:'detail'}] → [base, {view:'form'}] 으로 만들어서 뒤로가기가 목록으로 돌아오게 함
+  _suppressPopstate = true;
+  try {
+    await closeDetailModal();
+  } finally {
+    _suppressPopstate = false;
+  }
+  history.replaceState({ _bcy: 'view', view: 'form' }, '');
+  setActiveView('form', { noHistory: true });
 }
 
 async function onDetailDelete() {
@@ -1606,7 +1638,23 @@ function wireEvents() {
   els.detailEdit.addEventListener('click', onDetailEdit);
   els.detailDelete.addEventListener('click', onDetailDelete);
 
-  // ────── 백업 모달 ──────
+  // ── 모바일 뒤로가기(popstate) 처리 ──
+  window.addEventListener('popstate', async () => {
+    // 우리가 history.back()을 직접 호출한 경우는 무시
+    if (_historyOwnBack) { _historyOwnBack = false; return; }
+    // 유저가 뒤로가기 버튼을 누른 것 → 닫기 함수가 history.back()을 다시 호출하지 않도록
+    _suppressPopstate = true;
+    try {
+      if (!els.detailModal.hidden)       { await closeDetailModal();  return; }
+      if (!els.searchModal.hidden)       { await closeSearchModal();  return; }
+      if (!els.reportModal.hidden)       { closeReportModal();        return; }
+      if (!els.backupModal.hidden)       { closeBackupModal();        return; }
+      if (activeView !== 'list')         { setActiveView('list', { noHistory: true }); }
+    } finally {
+      _suppressPopstate = false;
+    }
+  });
+
   els.backupBtn?.addEventListener('click', () => openBackupModal());
   els.backupModalClose?.addEventListener('click', () => closeBackupModal());
   els.backupModal?.addEventListener('click', (event) => {
@@ -1710,6 +1758,7 @@ function wireEvents() {
 }
 
 async function init() {
+  history.replaceState({ _bcy: 'base' }, '');
   registerServiceWorker();
   wireEvents();
   buildQuickButtons();
