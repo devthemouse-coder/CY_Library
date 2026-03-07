@@ -1138,6 +1138,10 @@ async function exportBooks() {
 
   const filename = `bcy-library-${toBackupFilenameDate(new Date())}.json`;
   downloadJson(filename, payload);
+
+  // 마지막 내보내기 날짜 저장 (내부저장 버튼 경고 판단용)
+  localStorage.setItem('bcy_last_export', new Date().toISOString());
+  updateStorageBtnState();
 }
 
 function pickBooksFromImportJson(data) {
@@ -1535,6 +1539,24 @@ async function startScanner() {
   requestAnimationFrame(tick);
 }
 
+/**
+ * 내보내기가 30일을 초과했으면 내부저장 버튼을 경고색으로 표시.
+ */
+function updateStorageBtnState() {
+  const raw = localStorage.getItem('bcy_last_export');
+  let overdue = false;
+  if (!raw) {
+    overdue = true; // 한 번도 내보내기 안 한 경우
+  } else {
+    const diff = Date.now() - new Date(raw).getTime();
+    overdue = diff > 30 * 24 * 60 * 60 * 1000;
+  }
+  els.storageBtn?.classList.toggle('toolbar-btn--storage-warn', overdue);
+  if (els.storageBtn) {
+    els.storageBtn.textContent = overdue ? '⚠ 내부저장 ▾' : '내부저장 ▾';
+  }
+}
+
 function wireEvents() {
   els.form.addEventListener('submit', onSubmit);
   els.cancel.addEventListener('click', () => {
@@ -1864,6 +1886,7 @@ async function init() {
   buildQuickButtons();
   updateSortIndicators();
   updateSortBar();
+  updateStorageBtnState();
   setCategoryAllMode();
   setActiveView('list');
   initBackupPanel();

@@ -125,7 +125,7 @@ body.modal-open {
 
 .quick-summary {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -891,4 +891,27 @@ button.danger {
 
 .toolbar-btn--backup:hover {
   background: #bae6fd;
+}
+
+/* 툴바 리포트 버튼 색상 */
+.toolbar-btn--report {
+  background: #f3e8ff;
+  color: #7c3aed;
+  border-color: #d8b4fe;
+}
+
+.toolbar-btn--report:hover {
+  background: #e9d5ff;
+}
+
+/* 내부저장 — 내보내기 30일 초과 경고 */
+.toolbar-btn--storage-warn {
+  background: #fffbeb;
+  color: #b45309;
+  border-color: #fcd34d;
+  font-weight: 700;
+}
+
+.toolbar-btn--storage-warn:hover {
+  background: #fef3c7;
 }
