@@ -308,8 +308,10 @@ export async function searchBooks(query) {
     try {
       const naverResults = await naverSearch(q, naverCreds);
       if (naverResults && naverResults.length > 0) return naverResults;
-    } catch {
-      // 네이버 실패 시 Google Books로 폴백
+    } catch (e) {
+      // CORS 등으로 실패 시 Google Books로 폴백
+      // 네이버 개발자센터 > 앱 설정 > 웹 서비스 URL 에 현재 도메인을 등록해야 합니다.
+      console.warn('[Naver API] 검색 실패, Google Books로 폴백:', e?.message ?? e);
     }
   }
 
@@ -380,8 +382,10 @@ export async function lookupByIsbn(isbn) {
         const results = items.map(mapNaverItem).filter((x) => x.title);
         if (results.length > 0) return results[0];
       }
-    } catch {
-      // 폴백
+    } catch (e) {
+      // CORS 등으로 실패 시 폴백
+      // 네이버 개발자센터 > 앱 설정 > 웹 서비스 URL 에 현재 도메인을 등록해야 합니다.
+      console.warn('[Naver API] ISBN 조회 실패, Google Books로 폴백:', e?.message ?? e);
     }
   }
 
@@ -411,8 +415,8 @@ export async function fetchBookExtra(input) {
     try {
       const naverExtra = await fetchNaverExtra({ isbn, title, authors }, naverCreds);
       if (naverExtra) return naverExtra;
-    } catch {
-      // 폴백
+    } catch (e) {
+      console.warn('[Naver API] 상세 조회 실패, Google Books로 폴백:', e?.message ?? e);
     }
   }
 
