@@ -67,12 +67,24 @@ function pickOlIsbn13(isbnList) {
   return any || '';
 }
 
+function mergeGoogleTitle(title, subtitle) {
+  const t = String(title || '').trim();
+  const s = String(subtitle || '').trim();
+  if (!s) return t;
+  // subtitle 앞부분이 권수 패턴(숫자, Vol., 권)으로 시작하면 title에 합침
+  if (/^(\d+|Vol\.?\s*\d+|제?\d+권)/i.test(s)) {
+    const volMatch = s.match(/^(\S+)/);
+    return volMatch ? `${t} ${volMatch[1]}` : t;
+  }
+  return t;
+}
+
 function mapGoogleItem(item) {
   const info = item?.volumeInfo || {};
   return {
     source: 'google-books',
     sourceId: item?.id || '',
-    title: info?.title || '',
+    title: mergeGoogleTitle(info?.title, info?.subtitle),
     authors: Array.isArray(info?.authors) ? info.authors.join(', ') : '',
     publishedDate: info?.publishedDate || '',
     isbn: pickIsbn13(info?.industryIdentifiers),
@@ -105,8 +117,18 @@ function mapOpenLibraryDoc(doc) {
 function stripHtml(text) {
   return String(text || '')
     .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// 연속으로 중복된 토큰 제거: "마법천자문 58 58 (...)" → "마법천자문 58 (...)"
+function dedupTokens(title) {
+  return title.replace(/(\S+)( \1)+/g, '$1');
 }
 
 // ─── 네이버 API 헬퍼 ───────────────────────────────────────────
@@ -124,7 +146,7 @@ function mapNaverItem(item) {
   return {
     source: 'naver',
     sourceId: String(item?.link || item?.isbn || '').slice(0, 200),
-    title: stripHtml(item?.title || ''),
+    title: dedupTokens(stripHtml(item?.title || '')),
     authors: stripHtml(item?.author || '')
       .replace(/\^/g, ', ')
       .replace(/,\s*,/g, ',')
@@ -162,7 +184,7 @@ async function fetchNaverExtra(query, creds) {
   if (!item) return null;
 
   return {
-    title: stripHtml(item.title || ''),
+    title: dedupTokens(stripHtml(item.title || '')),
     authors: stripHtml(item.author || '').replace(/\^/g, ', ').replace(/,\s*,/g, ',').trim(),
     publishedDate: naverPubdate(item.pubdate),
     publisher: stripHtml(item.publisher || ''),
