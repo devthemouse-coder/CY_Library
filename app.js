@@ -50,6 +50,7 @@ const els = {
   note: /** @type {HTMLTextAreaElement} */ (document.getElementById('note')),
   cancel: /** @type {HTMLButtonElement} */ (document.getElementById('cancel-btn')),
   openSearchModal: /** @type {HTMLButtonElement} */ (document.getElementById('open-search-modal')),
+  formScanHelper: /** @type {HTMLParagraphElement} */ (document.getElementById('form-scan-helper')),
   search: /** @type {HTMLInputElement} */ (document.getElementById('search')),
   listTotalBadge: /** @type {HTMLSpanElement} */ (document.getElementById('list-total-badge')),
   searchCountBadge: /** @type {HTMLSpanElement} */ (document.getElementById('search-count-badge')),
@@ -966,8 +967,13 @@ function openSearchModal() {
   history.pushState({ _bcy: 'modal', modal: 'search' }, '');
   els.searchModal.hidden = false;
   els.searchModal.setAttribute('aria-hidden', 'false');
-  els.searchQuery.focus();
   lockScroll();
+  if (canScanBarcode()) {
+    // 지원 기기: 모달 열리자마자 스캔너 자동 시작
+    startScanner();
+  } else {
+    els.searchQuery.focus();
+  }
 }
 
 async function closeSearchModal() {
@@ -1887,6 +1893,11 @@ async function init() {
   updateSortIndicators();
   updateSortBar();
   updateStorageBtnState();
+  // 바코드 스캔 미지원 기기: 버튼 숨김 + 헬퍼 텍스트 변경
+  if (!canScanBarcode()) {
+    els.scanBtn.hidden = true;
+    if (els.formScanHelper) els.formScanHelper.textContent = '간편 입력에서 책을 검색할 수 있어요.';
+  }
   setCategoryAllMode();
   setActiveView('list');
   initBackupPanel();

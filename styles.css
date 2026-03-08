@@ -308,6 +308,19 @@ button.danger {
   border-color: #f0caca;
 }
 
+/* 간편 입력 버튼 — 빨강 계열 강조 */
+button.btn-quick-input {
+  background: #fff1f2;
+  color: #be123c;
+  border-color: #fda4af;
+  font-weight: 700;
+}
+
+button.btn-quick-input:hover {
+  background: #ffe4e6;
+  border-color: #fb7185;
+}
+
 .list-header {
   display: flex;
   align-items: center;
