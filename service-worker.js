@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bcy-library-v24';
+const CACHE_NAME = 'bcy-library-v25';
 const ASSETS = [
   './',
   './index.html',
@@ -11,6 +11,9 @@ const ASSETS = [
   './manifest.webmanifest',
   './icon.svg'
 ];
+
+// 네트워크 우선으로 처리할 확장자 (앱 코드)
+const NETWORK_FIRST_EXTS = ['.html', '.js', '.css', '.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -36,27 +39,48 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   const isSameOrigin = url.origin === self.location.origin;
 
-  // 외부 API/이미지 등은 캐시/ignoreSearch 적용 시 검색 결과가 꼬일 수 있어 네트워크로만 처리
+  // 외부 API 요청은 캐시 없이 네트워크로만 처리
   if (!isSameOrigin) {
     event.respondWith(fetch(req));
     return;
   }
 
-  event.respondWith(
-    (async () => {
-      const cached = await caches.match(req, { ignoreSearch: true });
-      if (cached) return cached;
+  const isAppFile = NETWORK_FIRST_EXTS.some((ext) => url.pathname.endsWith(ext))
+                    || url.pathname === '/' || url.pathname.endsWith('/');
 
-      try {
-        const fresh = await fetch(req);
-        const cache = await caches.open(CACHE_NAME);
-        cache.put(req, fresh.clone());
-        return fresh;
-      } catch {
-        // 오프라인 + 캐시 미스인 경우: 최소한 index.html 반환
-        const fallback = await caches.match('./index.html');
-        return fallback || new Response('Offline', { status: 503, statusText: 'Offline' });
-      }
-    })()
-  );
+  if (isAppFile) {
+    // ── 네트워크 우선: 항상 최신 파일을 가져오고, 오프라인일 때만 캐시 사용 ──
+    event.respondWith(
+      (async () => {
+        try {
+          const fresh = await fetch(req);
+          const cache = await caches.open(CACHE_NAME);
+          cache.put(req, fresh.clone()); // 최신 버전으로 캐시 갱신
+          return fresh;
+        } catch {
+          // 오프라인 → 캐시에서 서빙
+          const cached = await caches.match(req, { ignoreSearch: true });
+          if (cached) return cached;
+          const fallback = await caches.match('./index.html');
+          return fallback || new Response('Offline', { status: 503, statusText: 'Offline' });
+        }
+      })()
+    );
+  } else {
+    // ── 캐시 우선: 아이콘·폰트 등 정적 리소스 ──
+    event.respondWith(
+      (async () => {
+        const cached = await caches.match(req, { ignoreSearch: true });
+        if (cached) return cached;
+        try {
+          const fresh = await fetch(req);
+          const cache = await caches.open(CACHE_NAME);
+          cache.put(req, fresh.clone());
+          return fresh;
+        } catch {
+          return new Response('Offline', { status: 503, statusText: 'Offline' });
+        }
+      })()
+    );
+  }
 });
