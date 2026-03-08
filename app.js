@@ -165,8 +165,8 @@ let activeDetailBook = null;
 /** @type {{description:string} | null} */
 let activeDetailExtra = null;
 
-/** @type {{prev:string, tempSet:boolean, changed:boolean} | null} */
-let datePickerSession = null;
+/** @type {string | null} */
+let datePickerPrevValue = null;
 
 const HANGUL_INITIALS = [
   'ㄱ',
@@ -1766,21 +1766,15 @@ function wireEvents() {
 
   els.finishedAtOpen.addEventListener('click', () => {
     try {
-      const prev = els.finishedAt.value || '';
-      datePickerSession = { prev, tempSet: false, changed: false };
+      datePickerPrevValue = els.finishedAt.value || '';
 
       // 달력 기본값은 '오늘'
-      if (!prev) {
+      if (!els.finishedAt.value) {
         const now = new Date();
-        const iso = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(
-          now.getDate()
-        ).padStart(2, '0')}`;
-        els.finishedAt.value = iso;
-        datePickerSession.tempSet = true;
+        els.finishedAt.value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
       }
 
       els.finishedAt.focus();
-      // 일부 브라우저(안드로이드 크롬)는 showPicker 지원
       if (typeof els.finishedAt.showPicker === 'function') {
         els.finishedAt.showPicker();
       } else {
@@ -1791,19 +1785,14 @@ function wireEvents() {
     }
   });
   els.finishedAt.addEventListener('change', () => {
-    if (datePickerSession) datePickerSession.changed = true;
+    datePickerPrevValue = null;
     els.finishedAtDisplay.setCustomValidity('');
     els.finishedAtDisplay.value = els.finishedAt.value ? formatFinishedAt(els.finishedAt.value) : '';
   });
   els.finishedAt.addEventListener('blur', () => {
-    // 오늘을 임시로 넣고 달력을 열었는데, 변경 없이 닫힌 경우(취소) 원복
-    if (!datePickerSession) return;
-    const { prev, tempSet, changed } = datePickerSession;
-    datePickerSession = null;
-    if (tempSet && !changed) {
-      els.finishedAt.value = prev;
-      els.finishedAtDisplay.value = prev ? formatFinishedAt(prev) : '';
-    }
+    // blur 시점의 값으로 display 동기화 (취소해도 pre-set된 오늘 날짜 유지)
+    els.finishedAtDisplay.value = els.finishedAt.value ? formatFinishedAt(els.finishedAt.value) : '';
+    datePickerPrevValue = null;
   });
   els.finishedAtDisplay.addEventListener('blur', () => {
     syncFinishedAtFromDisplay({ report: false });
