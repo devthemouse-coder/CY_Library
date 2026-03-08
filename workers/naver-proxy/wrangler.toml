@@ -1,0 +1,9 @@
+name = "naver-book-proxy"
+main = "index.js"
+compatibility_date = "2024-09-23"
+
+# ── Secrets (절대 이 파일에 직접 입력하지 마세요) ──────────────────
+# 아래 명령으로 등록합니다:
+#   npx wrangler secret put NAVER_CLIENT_ID
+#   npx wrangler secret put NAVER_CLIENT_SECRET
+# ──────────────────────────────────────────────────────────────────

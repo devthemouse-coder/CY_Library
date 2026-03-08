@@ -762,6 +762,12 @@ button.btn-quick-input:hover {
   font-size: 14px;
 }
 
+.search-more-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
 .footer {
   margin-top: 10px;
   color: #555;

@@ -26,6 +26,7 @@ jobs:
         uses: actions/checkout@v4
 
       # GitHub Secrets 를 config.js 에 주입
+      # (GitHub - Settings - Secrets and variables 에 있음)
       # (config.js 는 .gitignore 등록 — 소스에 없고 배포 시 자동 생성)
       - name: Inject API keys into config.js
         run: |
@@ -33,6 +34,7 @@ jobs:
           export const GEMINI_API_KEY     = '${{ secrets.GEMINI_API_KEY }}';
           export const NAVER_CLIENT_ID     = '${{ secrets.NAVER_CLIENT_ID }}';
           export const NAVER_CLIENT_SECRET = '${{ secrets.NAVER_CLIENT_SECRET }}';
+          export const NAVER_PROXY_URL     = '${{ secrets.NAVER_PROXY_URL }}';
           EOF
 
       - name: Setup Pages

@@ -20,3 +20,13 @@ export const GEMINI_API_KEY = 'PASTE_GEMINI_API_KEY_HERE';
 
 export const NAVER_CLIENT_ID     = 'PASTE_NAVER_CLIENT_ID_HERE';
 export const NAVER_CLIENT_SECRET = 'PASTE_NAVER_CLIENT_SECRET_HERE';
+
+// ── Naver 프록시 (Cloudflare Worker) ────────────────────────
+// CORS 제약으로 브라우저에서 Naver API를 직접 호출할 수 없습니다.
+// Cloudflare Worker 배포 후 아래 URL 을 입력하세요.
+// 배포 방법: cd workers/naver-proxy && npx wrangler deploy
+//   (+ wrangler secret put NAVER_CLIENT_ID / NAVER_CLIENT_SECRET)
+// 프록시가 설정되면 NAVER_CLIENT_ID/SECRET 은 사용되지 않습니다.
+// ──────────────────────────────────────────────────────
+
+export const NAVER_PROXY_URL = 'https://naver-book-proxy.YOUR_SUBDOMAIN.workers.dev';

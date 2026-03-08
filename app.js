@@ -64,6 +64,7 @@ const els = {
   searchClear: /** @type {HTMLButtonElement} */ (document.getElementById('search-clear-btn')),
   searchResults: /** @type {HTMLUListElement} */ (document.getElementById('search-results')),
   searchEmpty: /** @type {HTMLParagraphElement} */ (document.getElementById('search-empty')),
+  searchMoreBtn: /** @type {HTMLButtonElement} */ (document.getElementById('search-more-btn')),
   scanBtn: /** @type {HTMLButtonElement} */ (document.getElementById('scan-btn')),
   scannerWrap: /** @type {HTMLDivElement} */ (document.getElementById('scanner')),
   scannerVideo: /** @type {HTMLVideoElement} */ (document.getElementById('scanner-video')),
@@ -128,6 +129,9 @@ const els = {
 let cachedBooks = [];
 /** @type {Array<{source:string,sourceId:string,title:string,authors:string,publishedDate:string,isbn:string,thumbnail:string}>} */
 let cachedSearchResults = [];
+let _searchPage = 0;
+let _searchHasMore = false;
+let _searchLastQuery = '';
 
 // ── History API: 모바일 뒤로가기 제어 ──
 // 포퍼스테이트가 우리 코드가 직접 되돌린 것인지 여부
@@ -1061,11 +1065,8 @@ function render() {
   }
 }
 
-function renderSearchResults() {
-  els.searchResults.innerHTML = '';
-  els.searchEmpty.hidden = cachedSearchResults.length !== 0;
-
-  for (const item of cachedSearchResults) {
+function appendSearchItems(items) {
+  for (const item of items) {
     const li = document.createElement('li');
     li.className = 'item';
     li.dataset.sourceId = item.sourceId;
@@ -1114,6 +1115,39 @@ function renderSearchResults() {
     row.appendChild(content);
     li.appendChild(row);
     els.searchResults.appendChild(li);
+  }
+}
+
+function renderSearchResults() {
+  els.searchResults.innerHTML = '';
+  els.searchEmpty.hidden = cachedSearchResults.length !== 0;
+  appendSearchItems(cachedSearchResults);
+  if (els.searchMoreBtn) els.searchMoreBtn.hidden = !_searchHasMore;
+}
+
+async function loadMoreSearch() {
+  if (!_searchHasMore || !_searchLastQuery) return;
+  _searchPage += 1;
+  if (els.searchMoreBtn) {
+    els.searchMoreBtn.disabled = true;
+    els.searchMoreBtn.textContent = '불러오는 중…';
+  }
+  try {
+    const { results, hasMore } = await searchBooks(_searchLastQuery, _searchPage);
+    cachedSearchResults = [...cachedSearchResults, ...results];
+    _searchHasMore = hasMore;
+    appendSearchItems(results);
+    if (els.searchMoreBtn) {
+      els.searchMoreBtn.hidden = !_searchHasMore;
+      els.searchMoreBtn.disabled = false;
+      els.searchMoreBtn.textContent = '더 보기';
+    }
+  } catch {
+    _searchPage -= 1;
+    if (els.searchMoreBtn) {
+      els.searchMoreBtn.disabled = false;
+      els.searchMoreBtn.textContent = '더 보기';
+    }
   }
 }
 
@@ -1277,8 +1311,12 @@ async function refresh() {
 
 async function runSearch(query) {
   const q = String(query || '').trim();
+  _searchLastQuery = q;
+  _searchPage = 0;
+  _searchHasMore = false;
+  cachedSearchResults = [];
+
   if (!q) {
-    cachedSearchResults = [];
     renderSearchResults();
     return;
   }
@@ -1286,9 +1324,12 @@ async function runSearch(query) {
   els.searchEmpty.textContent = '검색 중…';
   els.searchEmpty.hidden = false;
   els.searchResults.innerHTML = '';
+  if (els.searchMoreBtn) els.searchMoreBtn.hidden = true;
 
   try {
-    cachedSearchResults = await searchBooks(q);
+    const { results, hasMore } = await searchBooks(q, 0);
+    cachedSearchResults = results;
+    _searchHasMore = hasMore;
     els.searchEmpty.textContent = '검색 결과가 없어요.';
     renderSearchResults();
   } catch (err) {
@@ -1781,9 +1822,13 @@ function wireEvents() {
   els.searchClear.addEventListener('click', () => {
     els.searchQuery.value = '';
     cachedSearchResults = [];
+    _searchPage = 0;
+    _searchHasMore = false;
+    _searchLastQuery = '';
     renderSearchResults();
   });
   els.searchResults.addEventListener('click', onSearchListClick);
+  els.searchMoreBtn?.addEventListener('click', loadMoreSearch);
   els.scanBtn.addEventListener('click', startScanner);
   els.scannerClose.addEventListener('click', stopScanner);
 

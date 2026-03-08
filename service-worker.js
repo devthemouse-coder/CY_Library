@@ -39,11 +39,9 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   const isSameOrigin = url.origin === self.location.origin;
 
-  // 외부 API 요청은 캐시 없이 네트워크로만 처리
-  if (!isSameOrigin) {
-    event.respondWith(fetch(req));
-    return;
-  }
+  // 외부 API 요청은 서비스 워커가 개입하지 않음 — 브라우저가 직접 처리
+  // (event.respondWith를 호출하지 않으면 브라우저 기본 동작으로 넘어감)
+  if (!isSameOrigin) return;
 
   const isAppFile = NETWORK_FIRST_EXTS.some((ext) => url.pathname.endsWith(ext))
                     || url.pathname === '/' || url.pathname.endsWith('/');

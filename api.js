@@ -11,10 +11,12 @@ let googleBooksQuotaExceeded = false;
 // config.example.js 를 복사해 config.js 로 만들고 키를 입력하세요.
 let _configNaverId = '';
 let _configNaverSecret = '';
+let _configNaverProxyUrl = '';
 try {
   const cfg = await import('./config.js');
   _configNaverId = String(cfg.NAVER_CLIENT_ID || '').trim();
   _configNaverSecret = String(cfg.NAVER_CLIENT_SECRET || '').trim();
+  _configNaverProxyUrl = String(cfg.NAVER_PROXY_URL || '').trim();
 } catch {
   // config.js 없음 — 사용자가 UI에서 직접 입력해야 합니다.
 }
@@ -43,6 +45,39 @@ export function saveNaverCredentials(id, secret) {
 export function clearNaverCredentials() {
   localStorage.removeItem('bcy_naver_id');
   localStorage.removeItem('bcy_naver_secret');
+}
+
+/** Cloudflare Worker 프록시 URL. 설정된 경우 직접 호출 대신 Worker 를 경유합니다. */
+export function getNaverProxyUrl() {
+  return localStorage.getItem('bcy_naver_proxy_url') || _configNaverProxyUrl || '';
+}
+
+/**
+ * 네이버 API 호출 헬퍼 — proxyUrl 이 있으면 Worker 경유(CORS 불필요), 없으면 직접 호출.
+ * @param {'book'|'book_adv'} path
+ * @param {Record<string,string|number>} params
+ * @param {{id:string,secret:string}|null} creds  프록시 사용 시 null 가능
+ */
+async function naverApiFetch(path, params, creds) {
+  const proxyUrl = getNaverProxyUrl();
+  let url;
+  const fetchHeaders = {};
+
+  if (proxyUrl) {
+    // Worker 경유: 자격증명은 Worker 환경변수로 처리 — 브라우저 요청엔 불필요
+    url = new URL(`${proxyUrl.replace(/\/+$/, '')}/${path}`);
+  } else if (creds) {
+    url = new URL(path === 'book_adv' ? NAVER_BOOK_ADV_ENDPOINT : NAVER_BOOK_ENDPOINT);
+    fetchHeaders['X-Naver-Client-Id'] = creds.id;
+    fetchHeaders['X-Naver-Client-Secret'] = creds.secret;
+  } else {
+    return null;
+  }
+
+  Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, String(v)));
+  const res = await fetch(url.toString(), { headers: fetchHeaders });
+  if (!res.ok) return null;
+  return res.json().catch(() => null);
 }
 // ─────────────────────────────────────────────────────────────
 
@@ -157,29 +192,21 @@ function mapNaverItem(item) {
   };
 }
 
-/** @param {{isbn?:string,title?:string,authors?:string}} query @param {{id:string,secret:string}} creds */
+/** @param {{isbn?:string,title?:string,authors?:string}} query @param {{id:string,secret:string}|null} creds */
 async function fetchNaverExtra(query, creds) {
   const isbn = normalizeIsbn(query?.isbn || '');
   const title = String(query?.title || '').trim();
 
-  let url;
+  let data;
   if (isbn) {
-    url = new URL(NAVER_BOOK_ADV_ENDPOINT);
-    url.searchParams.set('d_isbn', isbn);
+    data = await naverApiFetch('book_adv', { d_isbn: isbn }, creds);
   } else {
     const q = [title, String(query?.authors || '').trim()].filter(Boolean).join(' ');
     if (!q) return null;
-    url = new URL(NAVER_BOOK_ENDPOINT);
-    url.searchParams.set('query', q);
-    url.searchParams.set('display', '1');
+    data = await naverApiFetch('book', { query: q, display: '1' }, creds);
   }
+  if (!data) return null;
 
-  const res = await fetch(url.toString(), {
-    headers: { 'X-Naver-Client-Id': creds.id, 'X-Naver-Client-Secret': creds.secret }
-  });
-  if (!res.ok) return null;
-
-  const data = await res.json().catch(() => null);
   const item = Array.isArray(data?.items) ? data.items[0] : null;
   if (!item) return null;
 
@@ -194,25 +221,20 @@ async function fetchNaverExtra(query, creds) {
   };
 }
 
-/** @param {string} q @param {{id:string,secret:string}} creds */
-async function naverSearch(q, creds) {
+/** @param {string} q @param {{id:string,secret:string}|null} creds @param {number} page */
+async function naverSearch(q, creds, page = 0) {
   const isbn = normalizeIsbn(q);
-  let url;
-  if (isbn) {
-    url = new URL(NAVER_BOOK_ADV_ENDPOINT);
-    url.searchParams.set('d_isbn', isbn);
-  } else {
-    url = new URL(NAVER_BOOK_ENDPOINT);
-    url.searchParams.set('query', q);
-    url.searchParams.set('display', '10');
-  }
-  const res = await fetch(url.toString(), {
-    headers: { 'X-Naver-Client-Id': creds.id, 'X-Naver-Client-Secret': creds.secret }
-  });
-  if (!res.ok) return null;
-  const data = await res.json().catch(() => null);
+  const PAGE_SIZE = 100;
+  const start = page * PAGE_SIZE + 1;
+  const data = isbn
+    ? await naverApiFetch('book_adv', { d_isbn: isbn }, creds)
+    : await naverApiFetch('book', { query: q, display: String(PAGE_SIZE), start: String(start) }, creds);
+  if (!data) return { results: [], hasMore: false };
   const items = Array.isArray(data?.items) ? data.items : [];
-  return items.map(mapNaverItem).filter((x) => x.title);
+  const results = items.map(mapNaverItem).filter((x) => x.title);
+  const total = Number(data.total) || 0;
+  const hasMore = !isbn && results.length > 0 && total > start + results.length - 1;
+  return { results, hasMore };
 }
 // ─────────────────────────────────────────────────────────────
 
@@ -296,21 +318,22 @@ async function fetchOpenLibraryExtra(input) {
 
 /**
  * @param {string} query
- * @returns {Promise<Array<{source:string,sourceId:string,title:string,authors:string,publishedDate:string,isbn:string,thumbnail:string}>>}
+ * @param {number} page  0-based 페이지 번호
+ * @returns {Promise<{results: Array, hasMore: boolean}>}
  */
-export async function searchBooks(query) {
+export async function searchBooks(query, page = 0) {
   const q = String(query || '').trim();
-  if (!q) return [];
+  if (!q) return { results: [], hasMore: false };
 
-  // 1순위: 네이버 API (자격증명이 설정된 경우)
-  const naverCreds = getNaverCredentials();
-  if (naverCreds) {
+  // 1순위: 네이버 API (Worker 프록시 또는 자격증명이 설정된 경우)
+  const _naverProxy = getNaverProxyUrl();
+  const _naverCreds = _naverProxy ? null : getNaverCredentials();
+  if (_naverProxy || _naverCreds) {
     try {
-      const naverResults = await naverSearch(q, naverCreds);
-      if (naverResults && naverResults.length > 0) return naverResults;
+      const { results: naverResults, hasMore } = await naverSearch(q, _naverCreds, page);
+      if (naverResults && naverResults.length > 0) return { results: naverResults, hasMore };
+      if (page > 0) return { results: [], hasMore: false };
     } catch (e) {
-      // CORS 등으로 실패 시 Google Books로 폴백
-      // 네이버 개발자센터 > 앱 설정 > 웹 서비스 URL 에 현재 도메인을 등록해야 합니다.
       console.warn('[Naver API] 검색 실패, Google Books로 폴백:', e?.message ?? e);
     }
   }
@@ -319,21 +342,30 @@ export async function searchBooks(query) {
   const isbn = normalizeIsbn(q);
   const googleQ = isbn ? `isbn:${isbn}` : q;
 
+  const GB_PAGE_SIZE = 40;
+  const startIndex = page * GB_PAGE_SIZE;
+  const OL_PAGE_SIZE = 100;
+  const olOffset = page * OL_PAGE_SIZE;
+
   const url = new URL(GOOGLE_BOOKS_ENDPOINT);
   url.searchParams.set('q', googleQ);
-  url.searchParams.set('maxResults', '10');
+  url.searchParams.set('maxResults', String(GB_PAGE_SIZE));
+  url.searchParams.set('startIndex', String(startIndex));
 
   // 이미 429를 한 번 맞은 세션이면 Google Books 재시도 대신 Open Library로 바로 폴백
   if (googleBooksQuotaExceeded) {
     const olUrl = new URL(OPEN_LIBRARY_SEARCH_ENDPOINT);
     olUrl.searchParams.set('q', googleQ);
-    olUrl.searchParams.set('limit', '10');
+    olUrl.searchParams.set('limit', String(OL_PAGE_SIZE));
+    olUrl.searchParams.set('offset', String(olOffset));
 
     const olRes = await fetch(olUrl.toString());
     if (!olRes.ok) throw new Error('BOOKS_QUOTA');
     const olData = await olRes.json().catch(() => null);
     const docs = Array.isArray(olData?.docs) ? olData.docs : [];
-    return docs.map(mapOpenLibraryDoc).filter((x) => x.title);
+    const results = docs.map(mapOpenLibraryDoc).filter((x) => x.title);
+    const numFound = Number(olData?.numFound) || 0;
+    return { results, hasMore: olOffset + results.length < numFound };
   }
 
   const res = await fetch(url.toString());
@@ -343,20 +375,25 @@ export async function searchBooks(query) {
     googleBooksQuotaExceeded = true;
     const olUrl = new URL(OPEN_LIBRARY_SEARCH_ENDPOINT);
     olUrl.searchParams.set('q', googleQ);
-    olUrl.searchParams.set('limit', '10');
+    olUrl.searchParams.set('limit', String(OL_PAGE_SIZE));
+    olUrl.searchParams.set('offset', String(olOffset));
 
     const olRes = await fetch(olUrl.toString());
     if (!olRes.ok) throw new Error('BOOKS_QUOTA');
     const olData = await olRes.json().catch(() => null);
     const docs = Array.isArray(olData?.docs) ? olData.docs : [];
-    return docs.map(mapOpenLibraryDoc).filter((x) => x.title);
+    const results = docs.map(mapOpenLibraryDoc).filter((x) => x.title);
+    const numFound = Number(olData?.numFound) || 0;
+    return { results, hasMore: olOffset + results.length < numFound };
   }
 
-  if (!res.ok) return [];
+  if (!res.ok) return { results: [], hasMore: false };
 
   const data = await res.json();
   const items = Array.isArray(data?.items) ? data.items : [];
-  return items.map(mapGoogleItem).filter((x) => x.title);
+  const results = items.map(mapGoogleItem).filter((x) => x.title);
+  const totalItems = Number(data?.totalItems) || 0;
+  return { results, hasMore: startIndex + results.length < totalItems };
 }
 
 /**
@@ -368,28 +405,20 @@ export async function lookupByIsbn(isbn) {
   if (!clean) return null;
 
   // 1순위: 네이버 book_adv (ISBN 전용 엔드포인트)
-  const naverCreds = getNaverCredentials();
-  if (naverCreds) {
+  const _naverProxy = getNaverProxyUrl();
+  const _naverCreds = _naverProxy ? null : getNaverCredentials();
+  if (_naverProxy || _naverCreds) {
     try {
-      const url = new URL(NAVER_BOOK_ADV_ENDPOINT);
-      url.searchParams.set('d_isbn', clean);
-      const res = await fetch(url.toString(), {
-        headers: { 'X-Naver-Client-Id': naverCreds.id, 'X-Naver-Client-Secret': naverCreds.secret }
-      });
-      if (res.ok) {
-        const data = await res.json().catch(() => null);
-        const items = Array.isArray(data?.items) ? data.items : [];
-        const results = items.map(mapNaverItem).filter((x) => x.title);
-        if (results.length > 0) return results[0];
-      }
+      const data = await naverApiFetch('book_adv', { d_isbn: clean }, _naverCreds);
+      const items = Array.isArray(data?.items) ? data.items : [];
+      const results = items.map(mapNaverItem).filter((x) => x.title);
+      if (results.length > 0) return results[0];
     } catch (e) {
-      // CORS 등으로 실패 시 폴백
-      // 네이버 개발자센터 > 앱 설정 > 웹 서비스 URL 에 현재 도메인을 등록해야 합니다.
       console.warn('[Naver API] ISBN 조회 실패, Google Books로 폴백:', e?.message ?? e);
     }
   }
 
-  const results = await searchBooks(clean);
+  const { results } = await searchBooks(clean);
   return results[0] || null;
 }
 
@@ -409,11 +438,12 @@ export async function fetchBookExtra(input) {
   const title = String(input?.title || '').trim();
   const authors = String(input?.authors || '').trim();
 
-  // 1순위: 네이버
-  const naverCreds = getNaverCredentials();
-  if (naverCreds) {
+  // 1순위: 네이버 (Worker 프록시 또는 자격증명)
+  const _naverProxy = getNaverProxyUrl();
+  const _naverCreds = _naverProxy ? null : getNaverCredentials();
+  if (_naverProxy || _naverCreds) {
     try {
-      const naverExtra = await fetchNaverExtra({ isbn, title, authors }, naverCreds);
+      const naverExtra = await fetchNaverExtra({ isbn, title, authors }, _naverCreds);
       if (naverExtra) return naverExtra;
     } catch (e) {
       console.warn('[Naver API] 상세 조회 실패, Google Books로 폴백:', e?.message ?? e);
