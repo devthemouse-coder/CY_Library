@@ -7,7 +7,7 @@ import {
   insertImportedBook,
   ensureBookGuids
 } from './db.js';
-import { fetchBookExtra, lookupByIsbn, searchBooks, tryExtractIsbnFromBarcode } from './api.js';
+import { fetchBookExtra, lookupByIsbn, searchBooks, tryExtractIsbnFromBarcode, getNaverCredentials, getNaverCredentialsCustom, saveNaverCredentials, clearNaverCredentials } from './api.js';
 import { summarizeWithGemini } from './ai.js';
 import { loadGistSettings, saveGistSettings, clearGistSettings, backupToGist, loadFromGist, verifyToken } from './gist.js';
 
@@ -69,6 +69,14 @@ const els = {
   scannerVideo: /** @type {HTMLVideoElement} */ (document.getElementById('scanner-video')),
   scannerClose: /** @type {HTMLButtonElement} */ (document.getElementById('scanner-close-btn')),
   scannerStatus: /** @type {HTMLDivElement} */ (document.getElementById('scanner-status')),
+
+  naverApiToggle: /** @type {HTMLButtonElement} */ (document.getElementById('naver-api-toggle')),
+  naverApiPanel: /** @type {HTMLDivElement} */ (document.getElementById('naver-api-panel')),
+  naverClientId: /** @type {HTMLInputElement} */ (document.getElementById('naver-client-id')),
+  naverClientSecret: /** @type {HTMLInputElement} */ (document.getElementById('naver-client-secret')),
+  naverApiSave: /** @type {HTMLButtonElement} */ (document.getElementById('naver-api-save')),
+  naverApiClear: /** @type {HTMLButtonElement} */ (document.getElementById('naver-api-clear')),
+  naverApiStatus: /** @type {HTMLParagraphElement} */ (document.getElementById('naver-api-status')),
 
   detailModal: /** @type {HTMLDivElement} */ (document.getElementById('detail-modal')),
   detailClose: /** @type {HTMLButtonElement} */ (document.getElementById('detail-close')),
@@ -1563,6 +1571,26 @@ function updateStorageBtnState() {
   }
 }
 
+/**
+ * 네이버 API 자격증명 상태를 UI에 반영.
+ */
+function updateNaverApiState() {
+  const custom = getNaverCredentialsCustom();
+  if (els.naverApiToggle) {
+    if (custom) {
+      els.naverApiToggle.textContent = '✏ API';
+      els.naverApiToggle.title = '사용자 API 사용 중';
+      els.naverApiToggle.classList.add('naver-api-active');
+    } else {
+      els.naverApiToggle.textContent = '✓ API';
+      els.naverApiToggle.title = '기본 네이버 API 사용 중';
+      els.naverApiToggle.classList.remove('naver-api-active');
+    }
+  }
+  if (els.naverClientId && custom) els.naverClientId.value = custom.id;
+  if (els.naverClientSecret && custom) els.naverClientSecret.value = custom.secret;
+}
+
 function wireEvents() {
   els.form.addEventListener('submit', onSubmit);
   els.cancel.addEventListener('click', () => {
@@ -1759,6 +1787,39 @@ function wireEvents() {
   els.scanBtn.addEventListener('click', startScanner);
   els.scannerClose.addEventListener('click', stopScanner);
 
+  // 네이버 API 설정 패널
+  els.naverApiToggle?.addEventListener('click', () => {
+    const hidden = els.naverApiPanel.hidden;
+    els.naverApiPanel.hidden = !hidden;
+    if (!hidden) {
+      els.naverApiStatus.hidden = true;
+    }
+  });
+  els.naverApiSave?.addEventListener('click', () => {
+    const id = els.naverClientId.value.trim();
+    const secret = els.naverClientSecret.value.trim();
+    if (!id || !secret) {
+      els.naverApiStatus.textContent = 'Client ID와 Client Secret을 모두 입력해주세요.';
+      els.naverApiStatus.className = 'naver-api-status error';
+      els.naverApiStatus.hidden = false;
+      return;
+    }
+    saveNaverCredentials(id, secret);
+    els.naverApiStatus.textContent = '저장됐어요. 이제 나만의 API로 책을 검색합니다.';
+    els.naverApiStatus.className = 'naver-api-status ok';
+    els.naverApiStatus.hidden = false;
+    updateNaverApiState();
+  });
+  els.naverApiClear?.addEventListener('click', () => {
+    clearNaverCredentials();
+    els.naverClientId.value = '';
+    els.naverClientSecret.value = '';
+    els.naverApiStatus.textContent = '삭제됐어요. 다시 기본 네이버 API를 사용합니다.';
+    els.naverApiStatus.className = 'naver-api-status';
+    els.naverApiStatus.hidden = false;
+    updateNaverApiState();
+  });
+
   els.detailClose.addEventListener('click', () => closeDetailModal());
   els.detailModal.addEventListener('click', (event) => {
     const target = /** @type {HTMLElement} */ (event.target);
@@ -1893,6 +1954,7 @@ async function init() {
   updateSortIndicators();
   updateSortBar();
   updateStorageBtnState();
+  updateNaverApiState();
   // 바코드 스캔 미지원 기기: 버튼 숨김 + 헬퍼 텍스트 변경
   if (!canScanBarcode()) {
     els.scanBtn.hidden = true;

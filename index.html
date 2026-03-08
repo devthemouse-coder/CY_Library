@@ -203,9 +203,27 @@
         <div class="list-header">
           <h2 class="section-title">책 검색</h2>
           <div class="search-actions">
+            <button type="button" id="naver-api-toggle" class="secondary">⚙ API</button>
             <button type="button" id="scan-btn" class="secondary">바코드 스캔</button>
             <button type="button" id="close-search-modal" class="secondary">닫기</button>
           </div>
+        </div>
+
+        <!-- 네이버 API 자격증명 설정 패널 -->
+        <div id="naver-api-panel" class="naver-api-panel" hidden>
+          <p class="naver-api-guide">
+            <strong>기본 네이버 API가 이미 적용되어 있습니다.</strong><br>
+            나만의 API 키를 사용하려면 <a href="https://developers.naver.com/apps/" target="_blank" rel="noopener noreferrer">네이버 개발자 센터</a>에서 앱 등록 → <em>검색</em> API 활성화 → 서비스 환경 &gt; Web에 <strong>현재 도메인</strong>을 등록하세요.
+          </p>
+          <div class="naver-api-fields">
+            <input type="text" id="naver-client-id" placeholder="Client ID" autocomplete="off" spellcheck="false" />
+            <input type="password" id="naver-client-secret" placeholder="Client Secret" autocomplete="off" />
+          </div>
+          <div class="naver-api-actions">
+            <button type="button" id="naver-api-save">저장</button>
+            <button type="button" id="naver-api-clear" class="secondary">삭제</button>
+          </div>
+          <p id="naver-api-status" class="naver-api-status" hidden></p>
         </div>
 
         <form id="search-form" class="form" autocomplete="off">

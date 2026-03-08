@@ -1,8 +1,50 @@
 const GOOGLE_BOOKS_ENDPOINT = 'https://www.googleapis.com/books/v1/volumes';
 const OPEN_LIBRARY_SEARCH_ENDPOINT = 'https://openlibrary.org/search.json';
 const OPEN_LIBRARY_WORKS_BASE = 'https://openlibrary.org';
+const NAVER_BOOK_ENDPOINT = 'https://openapi.naver.com/v1/search/book.json';
+const NAVER_BOOK_ADV_ENDPOINT = 'https://openapi.naver.com/v1/search/book_adv.json';
 
 let googleBooksQuotaExceeded = false;
+
+// ─── 네이버 API 자격증명 ───────────────────────────────────────
+// 키는 config.js 에서 읽습니다 (config.js 는 .gitignore 등록 — GitHub에 올라가지 않음)
+// config.example.js 를 복사해 config.js 로 만들고 키를 입력하세요.
+let _configNaverId = '';
+let _configNaverSecret = '';
+try {
+  const cfg = await import('./config.js');
+  _configNaverId = String(cfg.NAVER_CLIENT_ID || '').trim();
+  _configNaverSecret = String(cfg.NAVER_CLIENT_SECRET || '').trim();
+} catch {
+  // config.js 없음 — 사용자가 UI에서 직접 입력해야 합니다.
+}
+
+export function getNaverCredentials() {
+  // 1순위: 사용자가 UI에서 직접 입력한 값 (localStorage)
+  const id = localStorage.getItem('bcy_naver_id');
+  const secret = localStorage.getItem('bcy_naver_secret');
+  if (id && secret) return { id, secret, isCustom: true };
+  // 2순위: config.js 에 설정된 값
+  if (_configNaverId && _configNaverSecret) return { id: _configNaverId, secret: _configNaverSecret, isCustom: false };
+  return null;
+}
+
+export function getNaverCredentialsCustom() {
+  const id = localStorage.getItem('bcy_naver_id');
+  const secret = localStorage.getItem('bcy_naver_secret');
+  return id && secret ? { id, secret } : null;
+}
+
+export function saveNaverCredentials(id, secret) {
+  localStorage.setItem('bcy_naver_id', String(id || '').trim());
+  localStorage.setItem('bcy_naver_secret', String(secret || '').trim());
+}
+
+export function clearNaverCredentials() {
+  localStorage.removeItem('bcy_naver_id');
+  localStorage.removeItem('bcy_naver_secret');
+}
+// ─────────────────────────────────────────────────────────────
 
 function normalizeIsbn(raw) {
   const cleaned = String(raw || '').replace(/[^0-9Xx]/g, '').toUpperCase();
@@ -66,6 +108,91 @@ function stripHtml(text) {
     .replace(/\s+/g, ' ')
     .trim();
 }
+
+// ─── 네이버 API 헬퍼 ───────────────────────────────────────────
+function extractNaverIsbn(isbnField) {
+  const parts = String(isbnField || '').split(/\s+/).map(normalizeIsbn).filter(Boolean);
+  return parts.find((x) => x.length === 13) || parts[0] || '';
+}
+
+function naverPubdate(pubdate) {
+  const p = String(pubdate || '');
+  return p.length === 8 ? `${p.slice(0, 4)}-${p.slice(4, 6)}-${p.slice(6, 8)}` : p;
+}
+
+function mapNaverItem(item) {
+  return {
+    source: 'naver',
+    sourceId: String(item?.link || item?.isbn || '').slice(0, 200),
+    title: stripHtml(item?.title || ''),
+    authors: stripHtml(item?.author || '')
+      .replace(/\^/g, ', ')
+      .replace(/,\s*,/g, ',')
+      .trim(),
+    publishedDate: naverPubdate(item?.pubdate),
+    isbn: extractNaverIsbn(item?.isbn),
+    thumbnail: item?.image || ''
+  };
+}
+
+/** @param {{isbn?:string,title?:string,authors?:string}} query @param {{id:string,secret:string}} creds */
+async function fetchNaverExtra(query, creds) {
+  const isbn = normalizeIsbn(query?.isbn || '');
+  const title = String(query?.title || '').trim();
+
+  let url;
+  if (isbn) {
+    url = new URL(NAVER_BOOK_ADV_ENDPOINT);
+    url.searchParams.set('d_isbn', isbn);
+  } else {
+    const q = [title, String(query?.authors || '').trim()].filter(Boolean).join(' ');
+    if (!q) return null;
+    url = new URL(NAVER_BOOK_ENDPOINT);
+    url.searchParams.set('query', q);
+    url.searchParams.set('display', '1');
+  }
+
+  const res = await fetch(url.toString(), {
+    headers: { 'X-Naver-Client-Id': creds.id, 'X-Naver-Client-Secret': creds.secret }
+  });
+  if (!res.ok) return null;
+
+  const data = await res.json().catch(() => null);
+  const item = Array.isArray(data?.items) ? data.items[0] : null;
+  if (!item) return null;
+
+  return {
+    title: stripHtml(item.title || ''),
+    authors: stripHtml(item.author || '').replace(/\^/g, ', ').replace(/,\s*,/g, ',').trim(),
+    publishedDate: naverPubdate(item.pubdate),
+    publisher: stripHtml(item.publisher || ''),
+    pageCount: null,
+    categories: [],
+    description: stripHtml(item.description || '')
+  };
+}
+
+/** @param {string} q @param {{id:string,secret:string}} creds */
+async function naverSearch(q, creds) {
+  const isbn = normalizeIsbn(q);
+  let url;
+  if (isbn) {
+    url = new URL(NAVER_BOOK_ADV_ENDPOINT);
+    url.searchParams.set('d_isbn', isbn);
+  } else {
+    url = new URL(NAVER_BOOK_ENDPOINT);
+    url.searchParams.set('query', q);
+    url.searchParams.set('display', '10');
+  }
+  const res = await fetch(url.toString(), {
+    headers: { 'X-Naver-Client-Id': creds.id, 'X-Naver-Client-Secret': creds.secret }
+  });
+  if (!res.ok) return null;
+  const data = await res.json().catch(() => null);
+  const items = Array.isArray(data?.items) ? data.items : [];
+  return items.map(mapNaverItem).filter((x) => x.title);
+}
+// ─────────────────────────────────────────────────────────────
 
 function mapGoogleExtra(item) {
   const info = item?.volumeInfo || {};
@@ -153,6 +280,18 @@ export async function searchBooks(query) {
   const q = String(query || '').trim();
   if (!q) return [];
 
+  // 1순위: 네이버 API (자격증명이 설정된 경우)
+  const naverCreds = getNaverCredentials();
+  if (naverCreds) {
+    try {
+      const naverResults = await naverSearch(q, naverCreds);
+      if (naverResults && naverResults.length > 0) return naverResults;
+    } catch {
+      // 네이버 실패 시 Google Books로 폴백
+    }
+  }
+
+  // 2순위: Google Books → 3순위: Open Library
   const isbn = normalizeIsbn(q);
   const googleQ = isbn ? `isbn:${isbn}` : q;
 
@@ -175,7 +314,7 @@ export async function searchBooks(query) {
 
   const res = await fetch(url.toString());
 
-  // Google Books 쿼터 초과 시(Open API 무키 방식에서 종종 발생) Open Library로 폴백
+  // Google Books 쿼터 초과 시 Open Library로 폴백
   if (res.status === 429) {
     googleBooksQuotaExceeded = true;
     const olUrl = new URL(OPEN_LIBRARY_SEARCH_ENDPOINT);
@@ -198,11 +337,31 @@ export async function searchBooks(query) {
 
 /**
  * @param {string} isbn
- * @returns {Promise<ReturnType<typeof mapGoogleItem> | null>}
+ * @returns {Promise<ReturnType<typeof mapNaverItem> | ReturnType<typeof mapGoogleItem> | null>}
  */
 export async function lookupByIsbn(isbn) {
   const clean = normalizeIsbn(isbn);
   if (!clean) return null;
+
+  // 1순위: 네이버 book_adv (ISBN 전용 엔드포인트)
+  const naverCreds = getNaverCredentials();
+  if (naverCreds) {
+    try {
+      const url = new URL(NAVER_BOOK_ADV_ENDPOINT);
+      url.searchParams.set('d_isbn', clean);
+      const res = await fetch(url.toString(), {
+        headers: { 'X-Naver-Client-Id': naverCreds.id, 'X-Naver-Client-Secret': naverCreds.secret }
+      });
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        const items = Array.isArray(data?.items) ? data.items : [];
+        const results = items.map(mapNaverItem).filter((x) => x.title);
+        if (results.length > 0) return results[0];
+      }
+    } catch {
+      // 폴백
+    }
+  }
 
   const results = await searchBooks(clean);
   return results[0] || null;
@@ -224,6 +383,18 @@ export async function fetchBookExtra(input) {
   const title = String(input?.title || '').trim();
   const authors = String(input?.authors || '').trim();
 
+  // 1순위: 네이버
+  const naverCreds = getNaverCredentials();
+  if (naverCreds) {
+    try {
+      const naverExtra = await fetchNaverExtra({ isbn, title, authors }, naverCreds);
+      if (naverExtra) return naverExtra;
+    } catch {
+      // 폴백
+    }
+  }
+
+  // 2순위: Google Books → 3순위: Open Library
   const qParts = [];
   if (isbn) qParts.push(`isbn:${isbn}`);
   else {
@@ -252,7 +423,6 @@ export async function fetchBookExtra(input) {
   }
 
   if (!res.ok) {
-    // Google Books가 실패해도 Open Library 쪽 정보가 있으면 보여주기
     const fallback = await fetchOpenLibraryExtra({ isbn, title, authors });
     return fallback;
   }

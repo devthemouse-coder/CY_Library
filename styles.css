@@ -928,3 +928,83 @@ button.btn-quick-input:hover {
 .toolbar-btn--storage-warn:hover {
   background: #fef3c7;
 }
+
+/* ⚙ API 버튼 — 네이버 자격증명 설정됨 */
+.naver-api-active {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #86efac;
+}
+
+/* 네이버 API 설정 패널 */
+.naver-api-panel {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  display: grid;
+  gap: 10px;
+}
+
+.naver-api-guide {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.naver-api-guide a {
+  color: #2563eb;
+}
+
+.naver-api-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.naver-api-fields input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.naver-api-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.naver-api-actions button {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.naver-api-status {
+  font-size: 13px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.naver-api-status.ok {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.naver-api-status.error {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+@media (max-width: 400px) {
+  .naver-api-fields {
+    grid-template-columns: 1fr;
+  }
+}
